@@ -1,0 +1,195 @@
+(base) obinexus@OBINexus:/mnt/c/Users/OBINexus/libpolycall-v1/libpolycall-v1$ ls
+LICENSE  Makefile  README.md  README.pdf  bin  favicon.png  include  index.html  main.c  polycall.cfg  scripts  src  test  tools
+(base) obinexus@OBINexus:/mnt/c/Users/OBINexus/libpolycall-v1/libpolycall-v1$ tree
+.
+├── LICENSE
+├── Makefile
+├── README.md
+├── README.pdf
+├── bin
+│   └── polycall
+├── favicon.png
+├── include
+│   ├── network.h
+│   ├── polycall.h
+│   ├── polycall_file_parser.h
+│   ├── polycall_micro.h
+│   ├── polycall_parser.h
+│   ├── polycall_protocol.h
+│   ├── polycall_state_machine.h
+│   ├── polycall_token.h
+│   └── polycall_tokenizer.h
+├── index.html
+├── main.c
+├── polycall.cfg
+├── scripts
+│   └── clone_commit.py
+├── src
+│   ├── network.c
+│   ├── polycall.c
+│   ├── polycall_micro.c
+│   ├── polycall_parser.c
+│   ├── polycall_protocol.c
+│   ├── polycall_state_machine.c
+│   ├── polycall_token.c
+│   └── polycall_tokenizer.c
+├── test
+│   ├── test_polystate.c
+│   └── test_polystate_machine.c
+└── tools
+
+7 directories, 29 files
+(base) obinexus@OBINexus:/mnt/c/Users/OBINexus/libpolycall-v1/libpolycall-v1$ make
+gcc -Wall -Wextra -I./include -fPIC -MMD -MP -c src/network.c -o build/network.o
+gcc -Wall -Wextra -I./include -fPIC -MMD -MP -c src/polycall.c -o build/polycall.o
+gcc -Wall -Wextra -I./include -fPIC -MMD -MP -c src/polycall_micro.c -o build/polycall_micro.o
+gcc -Wall -Wextra -I./include -fPIC -MMD -MP -c src/polycall_parser.c -o build/polycall_parser.o
+gcc -Wall -Wextra -I./include -fPIC -MMD -MP -c src/polycall_protocol.c -o build/polycall_protocol.o
+gcc -Wall -Wextra -I./include -fPIC -MMD -MP -c src/polycall_state_machine.c -o build/polycall_state_machine.o
+gcc -Wall -Wextra -I./include -fPIC -MMD -MP -c src/polycall_token.c -o build/polycall_token.o
+gcc -Wall -Wextra -I./include -fPIC -MMD -MP -c src/polycall_tokenizer.c -o build/polycall_tokenizer.o
+ar rcs lib/libpolycall.a build/network.o build/polycall.o build/polycall_micro.o build/polycall_parser.o build/polycall_protocol.o build/polycall_state_machine.o build/polycall_token.o build/polycall_tokenizer.o
+gcc -shared -o lib/libpolycall.so build/network.o build/polycall.o build/polycall_micro.o build/polycall_parser.o build/polycall_protocol.o build/polycall_state_machine.o build/polycall_token.o build/polycall_tokenizer.o -pthread -lssl -lcrypto
+gcc -Wall -Wextra -I./include -fPIC -MMD -MP -c main.c -o build/main.o
+gcc build/main.o lib/libpolycall.a -o bin/polycall -pthread -lssl -lcrypto -Llib -l:libpolycall.a
+(base) obinexus@OBINexus:/mnt/c/Users/OBINexus/libpolycall-v1/libpolycall-v1$ ./
+.gitignore    Makefile      README.pdf    build/        include/      lib/          polycall.cfg  src/          tools/
+LICENSE       README.md     bin/          favicon.png   index.html    main.c        scripts/      test/
+(base) obinexus@OBINexus:/mnt/c/Users/OBINexus/libpolycall-v1/libpolycall-v1$ ./build/
+main.d                    network.o                 polycall_micro.d          polycall_parser.o         polycall_state_machine.d  polycall_token.o
+main.o                    polycall.d                polycall_micro.o          polycall_protocol.d       polycall_state_machine.o  polycall_tokenizer.d
+network.d                 polycall.o                polycall_parser.d         polycall_protocol.o       polycall_token.d          polycall_tokenizer.o
+(base) obinexus@OBINexus:/mnt/c/Users/OBINexus/libpolycall-v1/libpolycall-v1$ ./bin/polycall -f
+.gitignore    Makefile      README.pdf    build/        include/      lib/          polycall.cfg  src/          tools/
+LICENSE       README.md     bin/          favicon.png   index.html    main.c        scripts/      test/
+(base) obinexus@OBINexus:/mnt/c/Users/OBINexus/libpolycall-v1/libpolycall-v1$ ./bin/polycall -f
+.gitignore    Makefile      README.pdf    build/        include/      lib/          polycall.cfg  src/          tools/
+LICENSE       README.md     bin/          favicon.png   index.html    main.c        scripts/      test/
+(base) obinexus@OBINexus:/mnt/c/Users/OBINexus/libpolycall-v1/libpolycall-v1$ ./bin/polycall -f ../@
+@bindings/   @config/     @drivers/    @extensions/ @plugins/
+(base) obinexus@OBINexus:/mnt/c/Users/OBINexus/libpolycall-v1/libpolycall-v1$ ./bin/polycall -f ../@config/
+.gitkeep         .polycallrc      cmake/           config.polycall  nginx/           node.polycallrc  ports/           systemd/
+(base) obinexus@OBINexus:/mnt/c/Users/OBINexus/libpolycall-v1/libpolycall-v1$ ./bin/polycall -f ../@config/config.polycall
+Warning: No network services were started
+Running in non-interactive mode...
+
+^CGoodbye!
+(base) obinexus@OBINexus:/mnt/c/Users/OBINexus/libpolycall-v1/libpolycall-v1$ cat ../@config/config.polycall
+# config.polycall - LibPolycall V2 Master Server Configuration
+# OBINexus Computing
+#
+# This file configures the polycall protocol daemon (polycalld).
+# Place in /etc/polycall/config.polycall or pass via --config flag.
+#
+# Syntax:
+#   server <name> { ... }     Define a protocol server binding
+#   security { ... }          Zero-trust security policy
+#   telemetry { ... }         Telemetry and GUID configuration
+
+# --- Protocol Server Bindings ---
+
+server node {
+    port        8084
+    bind        127.0.0.1
+    protocol    http
+    max_clients 128
+    timeout     60
+}
+
+server python {
+    port        3104
+    bind        127.0.0.1
+    protocol    reverse_proxy
+    max_clients 64
+    timeout     30
+}
+
+server go {
+    port        9084
+    bind        127.0.0.1
+    protocol    http
+    max_clients 256
+    timeout     30
+}
+
+server java {
+    port        7084
+    bind        127.0.0.1
+    protocol    http
+    max_clients 64
+    timeout     60
+}
+
+# --- Security (Zero-Trust) ---
+
+security {
+    mode            zero_trust
+    tls_enabled     true
+    tls_cert        /etc/ssl/certs/polycall.crt
+    tls_key         /etc/ssl/private/polycall.key
+    auth_required   true
+    hash_algorithm  sha256
+}
+
+# --- Telemetry ---
+
+telemetry {
+    enabled         true
+    guid_seed       auto
+    guid_algorithm  sha256
+    reporting       /var/log/polycall/telemetry.log
+    uuid_session    true
+}
+
+# --- Edge Computing ---
+
+edge {
+    cache_enabled   true
+    cache_dir       /var/lib/polycall/cache
+    cache_ttl       3600
+    update_trigger  on_change
+}
+
+# --- Microservice Isolation ---
+
+micro {
+    isolation       strict
+    sandbox         true
+}
+(base) obinexus@OBINexus:/mnt/c/Users/OBINexus/libpolycall-v1/libpolycall-v1$ ./bin/polycall -f ../@config/
+.gitkeep         .polycallrc      cmake/           config.polycall  nginx/           node.polycallrc  ports/           systemd/
+(base) obinexus@OBINexus:/mnt/c/Users/OBINexus/libpolycall-v1/libpolycall-v1$ ./bin/polycall -f ../@config/n
+nginx/           node.polycallrc
+(base) obinexus@OBINexus:/mnt/c/Users/OBINexus/libpolycall-v1/libpolycall-v1$ ./bin/polycall -f ../@config/node.polycallrc
+Warning: No network services were started
+Running in non-interactive mode...
+^CGoodbye!
+(base) obinexus@OBINexus:/mnt/c/Users/OBINexus/libpolycall-v1/libpolycall-v1$ cat ../@config/n
+nginx/           node.polycallrc
+(base) obinexus@OBINexus:/mnt/c/Users/OBINexus/libpolycall-v1/libpolycall-v1$ cat ../@config/node.polycallrc
+# .polycallrc - Per-Binding Configuration Template
+# Place this file in your project root or binding directory.
+#
+# This configures how a specific language binding connects to the
+# polycall protocol daemon.
+
+# Connection settings
+host        127.0.0.1
+port        8084
+protocol    http
+
+# Workspace
+workspace   /var/lib/polycall/workspace
+
+# Binding identity
+binding     node
+version     2.0.0
+
+# FFI bridge
+ffi_mode    native
+ffi_path    /usr/local/lib/libpolycall.so
+
+# Logging
+log_level   info
+log_file    /var/log/polycall/binding.log
+(base) obinexus@OBINexus:/mnt/c/Users/OBINexus/libpolycall-v1/libpolycall-v1$

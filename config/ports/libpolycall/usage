@@ -1,0 +1,9 @@
+libpolycall provides CMake targets:
+
+    find_package(libpolycall CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE libpolycall::libpolycall)
+
+Optional feature flags:
+
+    "tools"  - builds and installs the `polycall` executable
+    "tests"  - builds the test executables during packaging

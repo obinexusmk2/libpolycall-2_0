@@ -1,0 +1,39 @@
+{
+  "name": "@obinexusmk2/java-polycall",
+  "version": "1.0.0",
+  "description": "Java PolyCall adapter package for LibPolyCall runtime",
+  "author": "Nnamdi Michael Okpala",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/obinexusmk2/libpolycall-v1.git",
+    "directory": "bindings/java-polycall"
+  },
+  "keywords": [
+    "java",
+    "polycall",
+    "ffi",
+    "libpolycall",
+    "obinexus"
+  ],
+  "files": [
+    "README.md",
+    "target/*.jar",
+    "src/**",
+    "pom.xml",
+    "native/**",
+    "scripts/**"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/obinexusmk2/libpolycall-v1/issues"
+  },
+  "homepage": "https://github.com/obinexusmk2/libpolycall-v1#readme"
+}

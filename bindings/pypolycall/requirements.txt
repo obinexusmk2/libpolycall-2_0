@@ -1,0 +1,23 @@
+# PyPolyCall Core Dependencies - LibPolyCall Trial v1
+# Network and Protocol
+aiohttp>=3.8.0
+websockets>=11.0.0
+httpx>=0.24.0
+
+# Serialization
+msgpack>=1.0.0
+pydantic>=2.0.0
+
+# Security / Zero-Trust
+cryptography>=41.0.0
+PyJWT>=2.8.0
+
+# Configuration
+PyYAML>=6.0.0
+python-dotenv>=1.0.0
+
+# Telemetry / Logging
+structlog>=23.0.0
+
+# FFI / System
+cffi>=1.15.0

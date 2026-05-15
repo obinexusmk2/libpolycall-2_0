@@ -1,0 +1,586 @@
+Unknown Speaker  0:02  
+Okay,
+
+Unknown Speaker  0:09  
+seventh of seventh of March, 20 time now it's 1109
+
+Speaker 1  0:18  
+11:09am no 11am so I'm making a video today, this morning, but I'm not going now for any reason whatsoever. No one second. Guys camera. So, yeah, so, so this is going to sign, no entry allowed until all number 15 position
+
+Unknown Speaker  0:50  
+or number 14 position,
+
+Speaker 1  0:52  
+we administer to Nnamdi MEK, so that's me, but you Know, the economy literally to move out the room. Like, you know, I seem to have idiots, you know, trying to get me to move out the room. These are people who lose capacity, and he's supposed to do stuff. But, you know, I'm fighting off human rights at the bare minimum. And they're telling me no, but look, I suppose you can see as well. So I have to get out. I want to have to get out and sort things out. But, you know, I'm looking out for anything food. Like, you know, what's the point of negotiating normalcy will be in six nine, like, you know, I know anything on the matter of 93 but not stupid. I'm not stupid. Okay, next thing so, this video was about the political,
+
+Unknown Speaker  1:41  
+the political.
+
+Unknown Speaker  1:42  
+I local bindings, drive on SDK.
+
+Unknown Speaker  1:46  
+Basically it's
+
+Speaker 1  1:49  
+about the polyco so lepolico, alpha Lima i for Indigo, B for Bravo, B for Papa, oof Oscar, alpha Lima y for Yankee, C for Charlie. If alpha alpha Lima, alpha Lima, dash v, 1v for value, alpha Indigo, I'm just kidding. Is what such political system? So this is basically a political view. One repository,
+
+Unknown Speaker  2:15  
+yeah, already. Another two, fa, you know,
+
+Speaker 1  2:19  
+April 609, oh, my days. So I may be looking at this account, but already enabled to FA Have I not enabled it? Look, I can be locked up. So I've took on my phone today. So it's good find my phone. So the protocol is worse, polygraph system. Basically, situation coming. It's here, and it speaks every language, basically the program first. So basically, how do political being that? Exe, the bean dot, polycode, exe, which include instructions for one system, but I'm trying to grow with polycode. So bindings, basically the bindings are target programs you're going to have Java, political code book, political rust, pollico, all the languages, polycorado bindings. So all binaries are drivers, all bindings are squares. They are all bindings are examples. They do use FFI. So the binder, so let me show one of the binaries here. So you can go to the binance here and look at for binary, PY Polycom. So this allows you to talk to Python, PY Polycom. But this is Trav so I'm going to go to trial usable in the robot, but it's just a minimum viable product I delivered with sheep. So this allows to talk to any languages. On. But this Python protocol is Python protocols. You can go to exe to we can use curl now, curve works. Everything works in tandem. Use the binance.
+
+Unknown Speaker  3:50  
+Are bindings? Are bindings?
+
+Speaker 1  3:57  
+Are things that hook in a biological fashion. You can, you can use logic from Python go to my w2 algorithm is a Python political XC. So they are packages that you install with Python. You go before and for NPU, npm install, PY protocol, and you can install them. I mean, pip install. So this is all five four, such as symmetric equal. So this is a four sided philosophy. So you can go symmetric processes. They're not procedures. All processes are bi directional. So you can have a two way communication via duplex string. So two equations is a duplex string, and that's the four perfectly binding. And the rectangles are drivers. So they are procedures, procedures, no process. So a process is a bidirectional FFI from Project interviews, and they are to be native or non native to system, a whole system or not, or you have the driver, which are processes or procedures. Now the procedures are two way equal size, the asymmetric interfaces. They work on personal purpose, and they are different to drivers. So they are USB platform specific, or target specific, or something specific, but they are universal. They just built for one system like one class
+
+Unknown Speaker  5:23  
+86 underscores.
+
+Unknown Speaker  5:26  
+Or, you know,
+
+Speaker 1  5:31  
+you can have an arm as a shop EAC arm, which is how to do that. So if you have an EMC arm for arm assembly instruction set for systems of using ARM processor, but you know similar work on the direction so goes to develop more binance of the system via the pipeline interface. For example, to have a binding, more binance for self operation, like pi polical GPS, like you know this Python polluters, we can have pi GPS polycop to just start breaching all the systems. So I'm going to build two main things for the system. So you get a battery system. So basically the driver is going to have two institutions, because you have two pairs, because I have two interdependence executable. So you have like a, mean, the exe from divided by Python, and going to have like a typical pi driver
+
+Unknown Speaker  6:44  
+to the system of a PI,
+
+Speaker 1  6:48  
+you know, if you have a Python driver, pi driver, like a PI, polical driver, you know, because the drivers are working two way communication, so called interdependency now, libraries versus Ross. Ross can have an ESP Ross executables, and they are having two executables to handle a program is not a bad thing. It's just that. So you have to care for how you manage them. So, you know, because the piece of security. So the good thing about this is you can have from two channel language super and the drivers will have two endpoints of next. So the girls security system, you know, because they have two keys or to one public key, two public two private keys, or two public keys to one private key or two private two public schools that handle security based on peer to peer to peer model, which is basically a topology fraction for network infrastructure. So, you know, basically can have to something that's down up this office, but you know, you can have to something that serves like a banking system that uses driver execution concern, but not actually explicit across all architectures, because, you know, the source of it is basically to have larger, Solid Energy that provides you social concern for simple application. So you can have two tackle drivers here possible during the project. So, so you can have the banking app. So I have some apps to build these examples. Apps here. This is our examples. But they're not complete. They're far from complete. Yes, these are the mix files here, VC package. So VC package, so you know this is a process. So you get some, some banking security app. This is works on the banking secure bridge. So, you know, this is a the banking secure bridge.
+
+Unknown Speaker  8:49  
+This is the banking system.
+
+Speaker 1  8:53  
+This is a but they are all they can work on a political system. They belong to. Work on systems of mesh topology, because, you know the binding is very separate, and you know the program is domain interface, the main orchestrator of the system. So the political EC, which is has a political dot slash, if you really read me, you get the program first approach, zero trust and the parameter advantage. But why not while you're political, and you know, you can read this to yourself. You know, I want you to have this system for your life. You know, in the world of in the world of large language silos be universal protocol in the age of security, which is, be the socialist Africa in the area of blind systems, be the intelligent observer, the future engine community chair. And you can see, so, the beauty of this system is that the system that can be one to have an executable, to have a wire called an independent driver, binders, we can have a polygraphic system that grows involved the virtual system. But them saying is that it's not a bad thing. For example, this abuse version, don't show you the binders on the built version. Let me show you the bindings on the policing one. That's all you need to the policing now, this is Unix, but it's just a binary file you can download. I can start to use it in a unit environment. So if I could go here,
+
+Unknown Speaker  10:28  
+open terminal.
+
+Speaker 1  10:33  
+Wsl.so, I'm not in WM, WsL, dot, G WSS space, dash D space Ubuntu. I'm now heading to Ubuntu Unix mode. So now that's just political protocol. Now I get the instruction. Now I can type in, help. I can type in, but you know, if you want, you can do to the political that's F. Now that's F, like it's not stated here, but that's what gives you the fact this is a file flap. Now this is basically configuration all the same, but as f is supposed to file, and you need to configure political file here. So not only one computer position, if you guys need to take it up, no, you don't confuse a political file. You have you orchestrate everywhere and anywhere. So let me just find the Configure protocol here. So configure protocol here, see how it's the server maps to them. These are all commands to software command. So my server, Node, Node protocol that you see, server, Python, 300 and form. You know, basically it's taking all this port, using this port and exposing this your server port or your server portal collection from, and this is a from to from, from this port to this port. From this port A colon map to this port, a colon mechanism from this port. You know this is you can use the command here to do so does f config or Polycom? Let me do configure Polycom. It's there already. You know, we're gonna use this configuration will show you here. So this where everything is actually gonna have that gonna do the protocol. That's f config or political and see it started server here. But you can have the can have a new server. Can have
+
+Unknown Speaker  12:31  
+rust, 3030
+
+Speaker 1  12:36  
+map to 8089, and you should add the political server to show and see. So started. So the server command is there. So all commands here, but they are all these are tokens and network starting. You see, just start the same thing. So it takes a new server here in memory, server. And you know, if the person closes this was program will not be able to map. But they are active specific, so they are working on camera. It's very beautiful program here, but this is, this is the program here. So you're gonna use the binance to going to store the binance and drivers of the program to do it. But that's the goal there. So this is political files. These are the symptoms. So let me try and show you two more things. So you got to have this as an SDK. So the SDK will be some kind of target platform or terms of operations to be operating on SK so it operates on the interdependence concept of four direction bridges, you know, so you have two sets of pairs of drivers that will handle four cases of system coherence on state. You know, because goal is to have using goes to have four program you know, it's gonna be beautiful to understand. You understand, but the software's lubricated the goal here. So the software give you, expose you to so if you write more bindings or more drivers to start to build your website, Nnamdi, the system that this polygraphic so most is gonna be polygraphic, obnexus at all. The software will actually define software such as obnexus, symbolic interpreters, like you know, the ontological Bayesian intelligence or
+
+Unknown Speaker  14:19  
+knows, is doing, who is saying?
+
+Speaker 1  14:22  
+Understands the deeper information. So the proper system defined as,
+
+Unknown Speaker  14:28  
+let me go here. The process
+
+Speaker 1  14:30  
+is signed as P, probe as P, given S, P, colon. What does that mean? P such that states implies data. So, so that piece of external equals state implies data. So implies so you observe the data. Yeah, outputs basically, but yeah, output is the data itself. So it's not a system of a failure, is it? The probe system hasn't shown you the internal if you look at the other side of this data, you have probe data, probe internal, probe source. I n t such that a colon data in Christ state, and that's what called a symbolic introduction. So it's a perfect symbol. Welcome. This is ontological based. Bayesian intelligence architecture, but this,
+
+Unknown Speaker  15:29  
+SDK, the
+
+Unknown Speaker  15:32  
+more development kids you have, the more ODI.
+
+Speaker 1  15:37  
+SDK, one you know, we're talking about the political, non Protocol, or, you know, because you have a system of stability. So it's my es system from our website, ontological patient, intelligence architecture, and this ESM will be from our own website. Ontological basis will be because a system of non linearity has via the software development case. So you can work on Windows and target architecture and be interdependent because, you know, you don't opt this on. You don't update a new robot safe mode.
+
+Speaker 1  16:12  
+I'm ready yet, so doesn't say so that's what you can schema such as skuma can be mapped to the portal to mapped to the portal to use an XML configuration. You're using XML to as your configuration of the protocol, and that's why it's a system one. It's web friendly, because XML is transport. XML can be transported here. So today I'm going to give the decisions of the system for the political the political v1 open access, MK two, repository, MK to mark tune, because I'm transferred myself on an account this time. But that's good. It's basically a safe way to contain as well. So supposed to have the difficulty of ship the product in an isolated VM, because you don't actually the program, just actually the processes that deal with the program state so they will not be there will not be, um, So basically, but the political v2 will be ready, will not be ready until our proposal. So poetry, you will not be using it. It's not safe, but you've got a demon. There you go. Demon. There you got isolated demons. So the actually payment for the political view to is working there. So, so the goal is to have a system polygraph itself. You're gonna have it's all as binary. Go to if you want to go to the binance repositories, you can go
+
+Unknown Speaker  17:58  
+to MK two.
+
+Unknown Speaker  18:02  
+Go to M code to go to like, you know, Java
+
+Speaker 1  18:12  
+political now, Java political, Java political, you can run the XML political server, you know, Java jar, Target, I can install this, like, literally based on the political EXC, you know, NPM package. You can run this. You can run this. The goal is to have this for all target languages. But, you know, the binding is basically literally the goal of having the truth can happen for debug can have one for RAM system. Can have one as a system of a Lua protocol.
+
+Speaker 1  18:53  
+This is binding v1 trap, you know, MK two, but it does work in general. So you're gonna have the rock spec. You can install of this here. This lower, I see, this is the binance. So if you are, you are expecting a post market. So this is, see, the binder is basically a system of GCC procedure, the system of, you know, what's allowed, what's not allowed, but you know, it goes to isolate the processes. It's beautiful relationship. Thank you for this video. Like, share, subscribe. That's why it works. So the next step is to build the website, the follicle obnexus. So basically my watch is losing
+
+Unknown Speaker  19:37  
+to do so IW West, umbrella.ob, in excess.org,
+
+Unknown Speaker  19:41  
+via reverse domain naming, not openness,
+
+Unknown Speaker  19:45  
+law equals low,
+
+Speaker 1  19:50  
+so equals low, I w equals low. Gi Indigo jam, give a jam, I for Indigo equals, means, means, literally,
+
+Unknown Speaker  20:02  
+of Order,
+
+Speaker 1  20:04  
+order, order, i, j, i, and then you go to or Ha, go for harm, if alpha.ob, Nexus, Both Oscar B for Bravo, if echo.org,
+
+Unknown Speaker  20:21  
+that's going to
+
+Unknown Speaker  20:24  
+on my GitHub page for
+
+Speaker 1  20:26  
+now, you know, Expo so you know, but you know, it's gonna be this account until my security list, so it's gonna be a problem if I can't find my phone. But, you know, public facing, it will be continue the work I'm doing. But, you know, I'm trying to have this Docker containers, so Docker can expose the sport I need safely from a virtual model into the whole real world processes that you travel. But you know, that's the future of the system. It's polygraphic language. And if you go to, if you go to, if you go to youtube.com, first I go to playlist. So if you go to my YouTube channel, four slash audiences, you go to playlist. You go to v1 you can watch the video of v1 so v1 is here. These are two playlists here. How to use it. You have to use it. So, yeah, basically I explained. So you go to youtube.com, forward slash of oscom, YouTube, Oscar, beautiful, you can find my future. But if you go to the playlist section, you click on playlist section. Not sure how you do that, so you go, you go to YouTube. Go to youtube.com for such playlist, please. You can just go to the playlist tab here. So at all. Oscar B for Bravo, iPhone P for Papa, Alpha, Lima E for alpha one for Yankee, alpha Love, Love i for Indigo, Sarah, opioid playlist. You go to place, you go all the way down, scroll down. All the way down. You can the world's first polygon system polymorphic function called View playlist. And then you go here, and you can use how to use a polygraphic on library. So this example I showed you here, so how to use a polyglot system?
+
+Unknown Speaker  22:29  
+Yeah, let's watch it for the end.
+
+Unknown Speaker  22:37  
+So this is local
+
+Speaker 1  22:41  
+host example. They from this system. You can watch the video here, here, but this example here.
+
+Speaker 1  22:53  
+So remember keys, XML to you, service, conversion. I hope that does work. I haven't tried it, but you know, you know, just manage to try to so, you know, so you can have the system logo here. Forget the logo back here, this logo here. So this one says you can watch the videos here, if you want to review it, to get on board with it, goes to have you guys to build software. Go ahead. Like, share, subscribe. My name is container for now, go ahead. Thank you guys watching this video.
+
+Speaker 1  23:41  
+Bye, bye, like share and subscribe. Smash that. Subscribe Button on Tiktok X and LinkedIn. Smash, smash, smash, smash it. Smash it. You're autistic. I don't know I'm saying that. Like that. Okay, thank you.
+
+Transcribed by https://otter.ai
+
+022 secondsWelcome back guys to my channel. Um I'm OBS Nambdi Obsess Nambdi Pala. Now to show you how to use the polycore file.
+0:1212 secondsUm so we're going to use a fresh build.
+0:1414 secondsUm first thing you need to know you need OpenSSL dependencies. You need openSl file that to the lip directory and the the open SSL um lip to module.
+0:2626 secondsuh the DL file the dynamic library that's uh associated with Windows um systems for shared objects files uh
+0:3434 secondsthe polic needs that and you can use the install the the the OpenSSL from from
+0:3939 secondsthe secure uh secure place online online uh or like winget wing get install
+0:4646 secondsopenslr or wing search wing get search on windows you can use that same package
+0:5252 secondson Linux to to to help with openl with installing the polyon is the same. So,
+1:001 minutefirst what I'm going to do is try to show you how to use public polic I'm going to install
+1:101 minute, 10 secondsthree give me a long listing but I'm going to install three of Pac-Man uh
+1:171 minute, 17 secondsthree of
+1:261 minute, 26 seconds[Music]
+1:271 minute, 27 secondsPan. So now tree come another tree. Okay. Now this the file was
+1:351 minute, 35 secondsworking okay. I'm going to make clean first. I'm going to move everything. So I'm going to try again to tree and tree and tree uh tree command. So these
+1:441 minute, 44 secondsare the files. You got the polyore file per micro pa but they're not ready for development yet. So I'm going to show you how to use in a real system and in a
+1:541 minute, 54 secondsreal world um to use how to start get started with olico. So what you want to do is make clean and remove all mix to
+2:032 minutes, 3 secondsremove all the B build. Uh so what we're doing is build a fresh copy of the
+2:132 minutes, 13 secondspolicy security for policy is a big concern for this cuz you have a Pokemon interface we need to b
+2:202 minutes, 20 secondsmore bouncers you know I thought I expect people on the API system. Uh so when you use a poly core the core the core thing we want to do is uh we use
+2:292 minutes, 29 secondsthe zero trust principle uh very for security measures. Uh so so we never we never trust a system we never trust a
+2:372 minutes, 37 secondssystem any system on the internet we never trust it um that's trying to access our API or make request for API change data to API or anything like that
+2:442 minutes, 44 secondsupdate data um API uh policies has a uses a zero trust principle so at every
+2:522 minutes, 52 secondsevery corner every command to make sure that we have system that we uh can verify uh so zero zero trust I've
+3:003 minutesmentioned some my last video we have command foration otherwise ation with my algorithm I made to authorize and authorize in case you look at the competition for the algorithm u but I'll
+3:103 minutes, 10 secondsshow you that later uh so we have a medium we have medium medium obsess no
+3:173 minutes, 17 secondsit's old one but I it's not there then I upload it so you have a system and then we then and
+3:263 minutes, 26 secondsthen verify al check whether system is the right one to be authentic authorized that's usual in a nutshell It's about
+3:343 minutes, 34 secondsmaking algorithms and developing a way to make sure we always trust the system.
+3:373 minutes, 37 secondsWe never trust a system. We never trust the system. Anything access anything internet devices, any IoT devices,
+3:423 minutes, 42 secondsbusiness services uh and they al each stage of verification and that's what this one this is a tri version. It
+3:493 minutes, 49 secondsdoesn't have that feature but uh business in the in the next version.
+3:543 minutes, 54 secondsOkay. Now I'm going to clear some things. I'm going to run make or or just make. I'm going to compile it. It's compiling. It's still compiling. It's still compiling. Okay. Still building.
+Chapter 2: Minute.6:00: Build system compilation showing library generation
+4:054 minutes, 5 secondsIt's built it. Okay. It's still building. Okay. I'll make
+4:154 minutes, 15 secondsa fail.
+4:184 minutes, 18 seconds[Music]
+4:214 minutes, 21 secondsUm I think it did fail. Uh this error. Um okay. One
+4:314 minutes, 31 secondssecond, guys. It must push the dev branch. I think it works in the dev branch. Okay. Once again, guys,
+4:444 minutes, 44 secondsuh uh uh good. So, we're going to make clean. So, cancel. We don't want to start his changes once we choose the death r instead.
+4:564 minutes, 56 secondsH. Um, oh um, now now when this should work now
+5:055 minutes, 5 secondscuz it's a I'm going to try and make again clean and make I make the build tool to use to
+5:145 minutes, 14 secondsbuild the pole. Now I can build again should work now. Now it should work cuz we have updated. Okay, it didn't
+5:215 minutes, 21 secondswork and there exe file. Okay, that is fine.
+5:275 minutes, 27 secondsSo, one
+5:305 minutes, 30 seconds[Music]
+5:345 minutes, 34 secondssecond. One second. One second. I'll try to fix this. I had a video ready, but
+5:425 minutes, 42 secondsum yeah, one second. It's got a video short, but now
+5:505 minutes, 50 secondsI'm ready. Uh so, so you now I want to show you how to use it.
+5:545 minutes, 54 secondsSo you now once we use your pore you have to now run a make command version make lane remove everything now
+6:036 minutes, 3 secondsmake now I get ls lib ls b p b p b p b p b p b p b p b p b p b pin
+6:106 minutes, 10 secondsuh li get a shared object library for you know if you know shared objects it's just it's for interactive applications
+6:176 minutes, 17 secondssharing applications um share object files for library for sh W file to um
+6:266 minutes, 26 secondsshell objects. Uh shell objects are just objects that are for two systems. Your application can use to connect to make
+6:336 minutes, 33 secondssimilar calls to the shell objects files. Uh it's like glows. Uh DL dynamic DL can be called similarly functions.
+6:436 minutes, 43 secondsThis is static library. uh we can learn the exe this is a a file an archive which is a shared objects file um a library poly and you go to bin polyexe
+6:536 minutes, 53 secondsfile uh here so I'll show you how to demonst file so what you're going to do is now
+6:596 minutes, 59 seconds[Music]
+7:017 minutes, 1 secondum I'm going to open a new tab
+7:127 minutes, 12 secondshere so now I want to directly here. So now now I'm going to make I'm going to try to I already
+7:197 minutes, 19 secondsbuilt all of and interive for help. I get the help command I can start network and all that
+7:277 minutes, 27 secondsgood stuff. A quick this is a read in interive system where you can test where
+7:357 minutes, 35 secondsyou can run in a mode for development purposes to see whether your configure as well your config works as intended.
+7:427 minutes, 42 secondsUh it's going to be interesting G version 2. Uh but it got to be for only development only. You never unless you want to rep in a in a system in a life
+7:517 minutes, 51 secondsenvironment unless you have you should never do it. There's no but if but no no questions there. Uh cuz it's in trial mode. You can check scripts and
+7:597 minutes, 59 secondseverything. Uh but it's not available to run polic um in the production mode only in development only testing commands.
+8:108 minutes, 10 secondsNow I'm going to create this purple. Now when I try polle um file so this is the poly
+8:198 minutes, 19 secondsfile I'm the old version for now
+8:278 minutes, 27 secondsconfig.pical file and this is a config.pical policable file that's what it looks like
+8:358 minutes, 35 secondspolication and this so what this means the server node exposes port 8080 to uh
+8:418 minutes, 41 seconds88 to4 uh so the binding is uh 8 to4 the server python for this server the python the protocol server which is a reverse
+8:498 minutes, 49 secondspocket system uh exposes port um python 31 to4 so this this this port this server
+8:578 minutes, 57 secondsthis this server to work so it seems event and so on and so forth and action settings for it. Okay, that's the first config. Now other configure bindings.
+9:089 minutes, 8 secondsSo there's not only
+9:289 minutes, 28 seconds[Music]
+9:309 minutes, 30 secondsno dots dot. So you see this can be node.pol Polle RC but we know we name it polic this is
+9:399 minutes, 39 secondsthe old version so it's just the polyore RC uh but it's for architecture so it's best to name it like that as well you can name the config anything you like as
+9:469 minutes, 46 secondswell you can rename the config to uh uh this poly file extension rename it anything you want you press enter oh um
+9:569 minutes, 56 secondsconcatenate uh call now now this is the user system so you now have port ET
+Chapter 3: Minute.12:00: Configuration file walkthrough with actual port mappings
+10:0510 minutes, 5 secondsmap 804. So this is policical system but it's for zero trust uh just mapping to
+10:1210 minutes, 12 secondsthe protocol server. So it knows con this port and all workspace communication uh all of this um system but you can look into a
+10:2110 minutes, 21 secondsprotocol um system. So this is the binding specific uh thing. So I'm going to show you how it works. So now I'm going to start a poly core for development
+10:3010 minutes, 30 secondspurposes. Like we're going to uh present it with a real life system now. So we're going to do the polyore exe file and
+10:3810 minutes, 38 secondswe're going to do sorry this bin polyore put this f uh cuz it's something called
+10:4510 minutes, 45 secondsconfiguration file. So the configuration file or the poly file is config.pol. Now this is like a real life example. You don't really uh interact with the whole
+10:5410 minutes, 54 secondssystem directly to the into you don't you never interact with the whole system or all you just all you just do is deploy this uh have a server provide a
+11:0311 minutes, 3 secondspower to this cut config 4 and you start the production environment and bridge your binance server now now this server is going to run indefinitely this a
+11:1011 minutes, 10 secondsserver this is going to run indefinitely so that's a server that's just waiting for requests for the server this is a polical server so it's
+11:1811 minutes, 18 secondsgoing to wait for calls for detail on the real server so this the server that's running data on the server waiting for data. It's a polling service
+11:2611 minutes, 26 secondswaiting for data. So right now it's ready to just pull and you can get reporting to uh it's just pretty much your telemetry but you know you get into
+11:3511 minutes, 35 secondstoo. So you're going to go to the binance now I'm going to run Binance.
+11:4111 minutes, 41 secondsSo now okay
+11:5611 minutes, 56 secondsnow and now now now I'm in the B this now I got poly for this co is just
+12:0412 minutes, 4 secondsreally running so we got to do now is now uh run the binance so we're going to do is um I'm going to show you the binance That's so the
+12:1512 minutes, 15 secondsbinders and tree node binders. Okay, tree. Um, okay. I'm going to install the tree command. It's going
+12:2412 minutes, 24 secondsto show I'm going to show you node bindings. I'm using
+12:3512 minutes, 35 secondsa is one. So, this is fine. And this is no poly.
+12:4112 minutes, 41 secondsand three examples. So this uh so this all this all the now this bindings m file which
+12:5012 minutes, 50 secondsexplor the config file. So uh the server so the config file you saw earlier is what's uh being used to configure this uh so you got two type of binding you
+12:5912 minutes, 59 secondsgot to bind specific configuration and polyore polyore server the whole system that handles the polymorph system. So this is the binding to the system. You
+13:0713 minutes, 7 secondscan have node polycom pi policle um can have node polic pi policle what system architecture thing you want to
+13:1413 minutes, 14 secondsconnect to your system uh you have what need you have you got this whole system uh and this now I'm going to try to
+13:2013 minutes, 20 secondsconnect if if I no
+13:2813 minutes, 28 seconds[Music]
+13:3513 minutes, 35 secondspolicy node Uh so ser can set it's not server. So now I'm going to try to run the procore
+13:4413 minutes, 44 secondsserver. So uh server
+13:5213 minutes, 52 secondsfile cut I'll show you. So this server file is just a raw
+14:0014 minutesserver. Uh but you what you do is import the bindings. uh the binary I just mapped to the data I mapped to the polyexe file uh just mapped this data
+14:0914 minutes, 9 secondssystem uh the polyexe file the configuration file on the whole system here but you see I didn't put a poly call uh driver like this is just binary
+14:1914 minutes, 19 secondsto the data you can put them uh the driver server logic and it's not even the it's not the it's not the end user it's not the end user your data consumer
+14:2714 minutes, 27 secondsimporting the API all you have to do is hit enter path route and hit enter that's what you have to do uh and just get that data whether it's
+14:3514 minutes, 35 secondscrude get request I want to get or not uh so now I'm going to clear see I didn't import this bin data and I have to go secure all the data so I clear
+14:4414 minutes, 44 secondssystem now I'm going to run a server a server examples
+14:5214 minutes, 52 secondsexamples right here system 184 remember it's 1 config file that's what the
+Chapter 4: Minute.: Live server responses across multiple programming languages
+15:0015 minutesserver still doing too so now we're going to do one more Let's have one more WhatsApp. Uh I'll show you how to
+15:0915 minutes, 9 seconds[Music]
+15:1315 minutes, 13 secondsum Okay.
+15:1515 minutes, 15 seconds[Music]
+15:2415 minutes, 24 secondsUm okay.
+15:2615 minutes, 26 secondsSo here again try show now I'm going to show you examples three examples but that was
+15:3315 minutes, 33 secondsbinding examples server now I've got some programs going this is oh go mistakes were made so this is go binary
+15:4115 minutes, 41 secondsso I'm going to now um run this file so
+15:5015 minutes, 50 secondsclient test client test
+16:0316 minutes, 3 secondsclient and this book data is what's on server 7. I'm going use Python to do it.
+16:0816 minutes, 8 secondsPython Python. Okay, I don't have Python here. But watch that. Wait, wait for it.
+16:1316 minutes, 13 secondsI'm going to try to um use other programs I have
+16:1716 minutes, 17 secondslower. I do have L. So do um test client
+16:2616 minutes, 26 secondslower the problems. Uh cond here you know I don't cond go. Oh let's have a go. Okay. So,
+16:4016 minutes, 40 secondsI'm going to go go run uh let's claim it's
+16:5016 minutes, 50 secondsmformed. We did get it. Oh, yes. Um one
+16:5816 minutes, 58 secondssecond. He's my phone cuz he he doesn't know how to handle that. The B is not doesn't know how to write port. I'm going to nano a
+17:0817 minutes, 8 secondstest this uh it's mformed
+17:1617 minutes, 16 secondshere is that uh okay so it is m
+17:2317 minutes, 23 secondsthere I don't know it's a string u it's not really m878
+17:3417 minutes, 34 secondsfor so this connect this is we're going to try to connect to it is the four but it gets that data
+17:4017 minutes, 40 secondstoo for this book rout so it just correct
+17:4517 minutes, 45 seconds[Music]
+17:4717 minutes, 47 secondsum yes it gets the data uh uh so it did get the data created a book box uh test route so it didn't get
+17:5517 minutes, 55 secondsthe data yes error too uh so it works like that you go to Python uh I'm going to show I'm going
+Chapter 5: Minute.20:00: Browser verification showing identical JSON data regardless of client language
+18:0318 minutes, 3 secondsshow you to push one for row. I'm going to show you here. So system I'm going to try to make a
+18:1018 minutes, 10 secondsrequest to that. Uh so I'm going to try to uh make a request there. So I'm going to run a Python S file in another
+18:1818 minutes, 18 secondsenvironment. So I want to just copy that file. Um get Python
+18:2518 minutes, 25 secondshere. So Python help Python. So I want to copy
+18:3218 minutes, 32 secondsuh so one second. So so you can run the Python I have Python system here. One second guys I'll show you
+18:4018 minutes, 40 secondssomething Firefox Facebook.
+18:4718 minutes, 47 secondsOkay. So I'm going to go to the main server.
+18:5118 minutes, 51 secondsUm the server it's here. Make sure the server now the server hit the local host.
+19:0019 minutesat HF4 not the portal server this the monkey books you see this data um this data is
+19:0919 minutes, 9 secondsthe same data uh that you're getting uh on the host system and that's what it's doing so it's what it is uh this data is
+19:1719 minutes, 17 secondswhat it is you could get it from any language can index in a browser the raw data is there the JSON formatted is there and the header center here uh so
+19:2619 minutes, 26 secondsyou can look at it code JSON API uh and that's a polic for you try Python you can get you can get the exact um the
+19:3519 minutes, 35 secondstrial version and use it so you go to um I don't think I have oh yes yes I have it on my system here I want to find
+19:4219 minutes, 42 secondsit for you guys now so can
+19:5119 minutes, 51 secondsPython I'm not finding out Um
+20:0320 minutes, 3 secondsum and then I'm going to do um so I'm going to show you the examples now. So now I'm going to show you okay see the
+20:1020 minutes, 10 secondsexamples see okay examples show my Python one and the Python one be uh you have to understand
+20:1720 minutes, 17 secondsbut you know what formatted to uh the Python
+20:2520 minutes, 25 secondsfile I still get the same data so it doesn't matter any language you use any data you use uh just get the data
+20:3220 minutes, 32 secondsseamlessly it gets it all in one now okay now thank you for watching this video please like share subscribe. It helps me so much uh to grow as a human
+20:4020 minutes, 40 secondsbeing as a developer and if you like the project so you can continue to do um so what you see is there yeah I believe
+20:4820 minutes, 48 secondsthere's a lot of benefits a lot of um I'm going to we have more commands coming so uh for compare system so if
+20:5520 minutes, 55 secondsyou want to make any corey AP right but you know for each domain so we got we got microser architecture edge computing
+21:0321 minutes, 3 secondsuh to solve real problems and that's what I'm focusing on got term command for service and reporting of data handling data properly. Uh but what
+21:1021 minutes, 10 secondsprotocol focuses on is on an FIFA FI bridge. So if you want to migrate to what what just stitches all the system
+21:1821 minutes, 18 secondstogether, you want to you want to have your financial service cobalt legacy code that serves the bank's details that serves bank data and consider request
+21:2721 minutes, 27 secondswith polyore the polyore function function interface command the cobalt bridge to to connect to connect um the the connect the whole system together.
+21:3521 minutes, 35 secondsUh you want you want to um go to finance system uh you want to um those API those APIs you want to
+21:4321 minutes, 43 secondsum want to make a game use a get finger interface command for Python to switch all those things together and make a web
+21:5121 minutes, 51 secondsbased game or even a CBS game that you unified architecture so polical or poly is not to see or to see what you try to
+21:5821 minutes, 58 secondsdo is it's not just a C project it's it's unified architecture finding all your code all your things together it solve that problem of uh you don't have
+22:0722 minutes, 7 secondscup issue go new version uh you want to then off switch your version so new python version 3 pen 4 it doesn't matter
+22:1422 minutes, 14 secondsit just all pol stitches everything together and you could just write the use the fction interface know the poly core uh you can use that through the for
+22:2322 minutes, 23 secondsinterface that's pretty pol it's a project like share and subscribe and thank you for watching I
+22:3122 minutes, 31 secondsappreciate each one and everyone and follow me follow me on my social media Lift up everything. Share share the love
+22:3822 minutes, 38 secondsand may the power of polyore be with you.
+
+Sync to video time
+channel. My name is O Nami. My name is Namdi. I'm from Obi Nexus um um Obi
+0:1111 secondsNexus um computing team. Uh today I want to introduce uh something called a new tool called Leolico. Leolico is a
+0:2020 secondslibrary that's polymorph makes polymorphic cores also known as a polymorphic core library. uh uh uh the
+0:2828 secondsproblem is that um the problem is solved is uh using API development uh to seamly integrate all API systems into one
+0:3535 secondsunified uh unified system. Uh the problem for work is the problem the problem with P address is um it shows u
+0:4444 secondsis this um is this call or functions and all the data across different languages. Um so for
+0:5353 secondsexample uh a function with a type uh string a simple function add add two numbers a a and b uh the type numbers uh
+1:031 minute, 3 secondsbut now now you want to have string support you have to set different logic um you have to assert different logic uh
+1:121 minute, 12 secondsso but so you now have a function a and b that has two numbers you have these two numbers are integers you didn't assert that logic and now you want to
+1:191 minute, 19 secondsadd a number to a string That's the polymorphic uh like it's polymorphic in nature. You assess different type of data. Um polymorphic
+1:281 minute, 28 secondsnature. Uh lipol is lipolico is a lipo is a polymorphic
+1:361 minute, 36 seconds[ __ ] that that for any language it's language it's data going it doesn't care it just gives that data. Uh it is a huge
+1:431 minute, 43 secondsmilestone in uh developing uh APIs. Um I'll show you how it works but about word about lip policle on the store.
+1:521 minute, 52 secondsWhen you go to the paper.com/ob nexus you get uh you can search for lip polyico uh lip poly can
+1:581 minute, 58 secondsget an individual license uh business license and uh and enterprise more partnership and insight
+2:062 minutes, 6 secondson the project. Uh so that's for projects.
+2:112 minutes, 11 secondsUh individual license is just one license. You just get a use document.
+2:152 minutes, 15 secondsYou get documentation to get everything to it. And you get the business license. You get the documentation and support.
+2:212 minutes, 21 secondsYou can message me directly. Uh and then make calls and see how can your business
+2:302 minutes, 30 secondsand then uh then um you get um partnership program where you can partner with us on ideas and help us uh
+2:372 minutes, 37 secondshelp us help you. If you're just really good, you get approval. If you're a business, you want to get approval or disapproval. You work with me. We'll give you insights on the on our tools or
+2:462 minutes, 46 secondsmore tools that may be useful for you along more data too. So you can help you understand uh how to go about your own
+2:542 minutes, 54 secondsbusiness processes too. Uh Leo is a procore library uh using C uh C uh
+3:033 minutes, 3 secondsprogram. Okay. So uh so traditional APIs fall short of uh fall short cuz everything API say you have a weather
+3:123 minutes, 12 secondsAPI and the weather API uh tradition API have have average computations. So if I
+3:203 minutes, 20 secondsif I want to say have a weather API a weather API uh a weather API uh I want
+3:273 minutes, 27 secondsto make a quot in Python or NodeJS or or or Scala or or even C I have to have a C
+3:353 minutes, 35 secondsimplementation to drive that logic. I think it's import the the the weather API package for C for Python for um
+3:443 minutes, 44 secondsnode and all that uh and it's it's it's very it's driver to just drive the logic
+3:513 minutes, 51 secondsuh that API is very bad uh have a bad API design because I have to learn the languages with the binance uh with the
+3:593 minutes, 59 secondspackage itself called binance uh now now I'm going to show you how the polic solves all this problem all the mess of
+4:054 minutes, 5 secondsarchitecture Uh so so what what le does all is very simple uh but it's very
+4:134 minutes, 13 secondsbeautiful as well.exe is uh is the main entry point for the program. Now the policle has
+4:224 minutes, 22 secondssomething called a config file. Uh that config file just the binding act. Let me example an analogy. All squares all
+4:314 minutes, 31 secondssquares are rectangles. All squares are rectangles.
+4:364 minutes, 36 secondsNot all rectangles are squares. Simple. That's a very simple analogy. Uh so this what uses example.
+4:434 minutes, 43 secondsSo all squares are rectangles. Not all are squares. This means that uh all bindings all bindings to data. Any function that
+4:514 minutes, 51 secondstransform data and binds to data are squares in that aspect. Uh they are packages node packages. Node packages uh
+5:005 minutesthey don't drive logic. They just bind to data and bind to logic.
+5:055 minutes, 5 secondsum that is um the binding of that's called a binding a node polic binding or python policle binding or any binding
+5:145 minutes, 14 secondslike that and there is a and there is something uh and and a bon C binding C
+5:225 minutes, 22 secondspoly node poly this b what the developers install to change the polyore exe file which is the
+5:315 minutes, 31 secondsproblem now No, no, no. All binaries are binary protocol. Uh which which ship the
+5:385 minutes, 38 secondsdata which which server calls to handle the data? That's your server calls the bindings. It's fine. Uh and all drivers
+5:485 minutes, 48 secondsare all drivers. So there's no there's no server is a driver code. So the server handles the logic of the user
+5:565 minutes, 56 secondscontrols the user how these the server uh p binance to drive the second. So you can import node
+6:046 minutes, 4 secondspolication of node polic and that polycore binding that's policy for using server.
+6:126 minutes, 12 secondsUm now when the end user um wants to come to that API uh so the server uh this server ask model. So that's what
+6:206 minutes, 20 secondsthe code is. Uh what is a program the exe program it's meant to um serve handle the uh server request. uh what
+6:306 minutes, 30 secondsprotocol really does what the policle what the policle the polyle x is doing is really uh it's a it's a proxy it's a
+6:386 minutes, 38 secondsproxy and a reverse proxy uh program that uh handles the data and and and
+6:466 minutes, 46 secondsgives it to the uh gives it to the client uh uh so let me example it has it's an intermediary what it is is an
+6:536 minutes, 53 secondsindividual proxy system that handles the data server server using the policical binding and the uh and the and the main
+7:017 minutes, 1 secondum and the main clients who was consuming their data. uh introducing model um anybody it's very hard to set
+7:107 minutes, 10 secondsup system like that uh cuz you know uh polycore is uh it's one of the tools alone it's really it's one of one of those tools
+7:197 minutes, 19 secondsthat's really make sure to um that's really uh better than solving problems because you binding from driver code
+7:267 minutes, 26 secondsactually execute logic uh uh but the bindings are just mapping to data but what can bindings can still drive logic
+7:367 minutes, 36 secondsUh just remember that. So so I'll show you how to use PCO. So uh let me give you an example.
+7:437 minutes, 43 secondsSo let me give so much like you have a server on the internet anywhere in the world. Um the first command you want to give you you have first anywhere in the
+7:517 minutes, 51 secondsworld and it's a proxy system. So when a server a user makes a request to the server um the data the protocol come
+7:587 minutes, 58 secondsintercepts the data the service request and then um and then uh intercept in between
+8:068 minutes, 6 secondsrequest and then when and then handles the data hand data processing uh ex handles the data processing and then uh
+8:138 minutes, 13 secondsgives it back to the server put it to the server gives to the server and the server stores it and stores it with all his data. Now if the user uh the same
+8:228 minutes, 22 secondsuser for that data session whatsoever and that that user can then uh request that data again uh and gets that data back uh the problem with protocol so far
+8:318 minutes, 31 secondsis uh protocol so far it's it's really it's really program interface it's a program so anyone can request any data
+8:408 minutes, 40 secondsof the of the server and the polic we have we have to have authentication commands where authentication authorizes command to
+8:488 minutes, 48 secondsmake sure the users are authentic authorized Well done. So Polo is a proxy system and a reverse proxy. It's a bouncer at a nightclub. It lets people
+8:578 minutes, 57 secondsin. This means reverse proxy. A proxy is someone that intercepts a request of both an agent and it so is a bouncer and
+9:069 minutes, 6 secondsa and a proxy system too. Uh so that's the
+9:139 minutes, 13 secondsit program configuration files are secured. So um uh so one now introduce the features of polyore. Poly core is a
+9:229 minutes, 22 secondspolical library. So you have standard binding system to bind to any language but you can write your own python package anything. Uh if you have a different requirement you suggest you a
+9:309 minutes, 30 secondsbank cobalt systems have you have to write your own cobalt bindings to that system and import it to your bank
+9:379 minutes, 37 secondslocation. So then you use it uh now now uh can use that in secure binding way or you can use uh anything
+9:459 minutes, 45 secondslike that. Now, now if you have your own nodejs bin by using node anyone open poly node poly the main objective of
+9:529 minutes, 52 secondspoly is to uh poly is the center of all communication you're going to hand data and language list it doesn't care uh
+10:0010 minutesjust give the data and answer the request get post get post get post remember update delete so crude
+10:0910 minutes, 9 secondsoperations both of them send HTTP request it's a stateless and uh it just serves that data uh to for any binary
+10:1710 minutes, 17 secondsarchitecture. Now I want to introduce the commands. You have the the first command I want to introduce is the FFI.
+10:2210 minutes, 22 secondsSo for any language you use um you have FFI command you have Python FFI node FFI uh which natively with the binaries I
+10:3110 minutes, 31 secondswant to make poly the polymorphic library all I'm going to show you the trial uh again I'm I'm going to introduce command so far. So you got the
+10:3810 minutes, 38 secondsa poly configuration file to configure um the files on a polical system where
+10:4510 minutes, 45 secondsthe poly file is is uh what it is. So you have a config
+10:5210 minutes, 52 secondspolic file and uh when you configure the data that's what it is. So what I'm saying now is uh you have the binding the FFI command which
+11:0111 minutes, 1 secondfor function interface interaction which is seamless communication within for Python binding Python the header H5 Python and you got the uh FFI command.
+11:1011 minutes, 10 secondsSo polyore ffi to handle function interfaces uh allowed to allow you know what I'm saying for systems you don't
+11:1711 minutes, 17 secondsneed configuration you get the micro command for microservices uh microservices are everywhere now so
+11:2411 minutes, 24 secondsyou do micro command is build have a bank card have a bank card component next to a uh ad service you then you
+11:3211 minutes, 32 secondswant to you want to want to go to the bank card and then you don't know whether third party access is malicious so you have to check the security risk
+11:4011 minutes, 40 secondsYou don't don't want to give security to it either. So you just um isolate the micro what the micro the polyore micro command does isolate the bank service
+11:4911 minutes, 49 secondsfrom ad services and that's what the polic micro command does. So you can isolate components uh bank card uh to and that data isolation
+11:5811 minutes, 58 secondsdata ship an API and isolated data in the real world in the real environment and now uh how policy really works is in
+12:0512 minutes, 5 secondsthe real environment you use the polyore file config polic and that's it and that's set up the whole system uh for you can configure you add the binance
+12:1412 minutes, 14 secondsyou add the node b just package node bin which node packages node polic packages so pi polic any polic system you're
+12:2112 minutes, 21 secondsusing to interact with the main system uh and the ship user the data based on anything you want to do that's binding
+12:2812 minutes, 28 secondsuh you got FFI command you got the core binding core binding logic now you got um the micro
+12:3612 minutes, 36 secondscommand fi config micro and now you trying to make it work on the that new
+12:4312 minutes, 43 secondscommand called edge computing command uh edge computing command is very important it's for node caching uh and trigger
+12:5012 minutes, 50 secondsupdates only when needed. Uh obviously an update say you have a server in uh United States and you have one in UK and
+12:5712 minutes, 57 secondsyou have someone in uh let's say France France France and then don't have a ser no you have a server in US state America
+13:0613 minutes, 6 secondsand you have a server in uh oh in UK um and the server the server is in the US let's assume that uh and then uh and
+13:1513 minutes, 15 secondsthen you have a new server here but you don't have one in France you don't you don't have one in France how are the cost so it's Also the edge computing
+13:2113 minutes, 21 secondscommand edge uh uh source the edge computing uh problem where we want one one problem to bring Alexa
+13:3013 minutes, 30 secondsstop where you want to bring data data closer to the source of data so get um computer to get people get comput is
+13:3713 minutes, 37 secondsvery important to get people their data get people information get people where they are uh information as soon as possible you know uh so how this problem
+13:4413 minutes, 44 secondssolved is solved is um we cach we cach at the nearest node uh on the server Uh
+13:5013 minutes, 50 secondsso if there's a cach so if if the the US server is in the US server there and
+13:5713 minutes, 57 secondsthen uh UK server yes and now this is from the US server to the UK server because was requested from the front
+14:0414 minutes, 4 secondsserver but the front server uh ces the server where it's going to be get back
+14:1214 minutes, 12 secondsunless an obvious is triggered on under a database and people using a protocol API on and us then um the polical system will
+14:2214 minutes, 22 secondsupdate the system. So so you have France will then make request to the U server to to the UK server. We then look for
+14:3014 minutes, 30 secondsupdates on the front on in the US your server to then deploy the updates but if it's not updated it's all cached and the
+14:3714 minutes, 37 secondsserver just works. That's a poly edge command edge computing command edge edge command. Um and there's one
+14:4614 minutes, 46 secondsmore we got a telemetry command. Uh telemetry command is very important. Uh uh uh cuz we all have a tele is very
+14:5314 minutes, 53 secondsimportant for this this gathering inside gathering. So you have a server any server on program language. You want to learn best. You want to
+15:0015 minutesknow people use your site a lot. You want to know what's what languages you use for tutorial. You want to get insight any data. Um I have any data. uh
+15:1015 minutes, 10 secondstelemetry can help you gather insight on your data or what people your servers and everything it
+15:1715 minutes, 17 secondstelemet data insights and information reporting that's what telemet really gives you that's a polical
+15:2615 minutes, 26 secondsterri version um I'm going to this command to be implemented uh in the full version and it to be it works with the
+15:3415 minutes, 34 secondsthe poly rc file which can be in JSON or the poly standard file Uh so that's what it is. Uh uh for the binary for the
+15:4315 minutes, 43 secondsbinary architecture you don't have to mix and match and don't forget now you have to
+15:4915 minutes, 49 seconds[Music]
+15:5015 minutes, 50 secondsnow so that's that's a command that's implemented can be implemented but I'm going to show you the code binding command how to use the buckle in a real
+15:5715 minutes, 57 secondsworld environment and uh try to show you how to use it uh how to use it now. Okay uh I'm going
+16:0516 minutes, 5 secondsto show you how to set this up and use it. Okay, one second. Okay, thank you for watching and
+16:1416 minutes, 14 secondslike, share, and subscribe. And subscribe.
+
+Hello everyone, my name is Nambdi. Um,
+0:066 secondswelcome back to my channel. Um, today I want to speak about the telemetry command and and it's called innovation.
+0:1313 secondsUm, if you look at it, the polycore telemetry command is really the backbone
+0:1919 secondsof er um of uh of data gathering and error reporting and uh information
+0:2727 secondsgathering. Data gathering and information gathering. data gathering and uh data gathering or to get insight
+0:3232 secondsin data uh and uh um data reporting. If there is any data uh on the internet
+0:4141 secondsthat you want to report uh uh maybe maybe uh something uh something very
+0:4747 secondsspecial uh that I've been working on. Um the telemetry command is really uh a powerhouse uh cuz if you want to use it
+0:5555 secondsin you you use it you use it to gather data and insights uh on data uh and report any ambiguities in data. So that is really what it is about.
+1:101 minute, 10 secondsUm so um that's the mean of telemetry.
+1:131 minute, 13 secondstelemetry is data gathering and information and and insights in that data uh in that data to model something.
+1:201 minute, 20 secondsMaybe you want to start a business. You have a business you want. Let me give you a slight example. Say I'll give you two examples. Um the first example I'll
+1:281 minute, 28 secondsgive you is uh a simple survey. You go to a website endpoint uh and there's a server there and then you just uh put in
+1:361 minute, 36 secondsthe values and it's reported to the server. Uh in that you get the table kind of used for that
+1:431 minute, 43 secondsum purposes. Uh and then that's what that's that's really that's really a simple example. I can't listen to to two
+1:511 minute, 51 secondsum um uh servers. So that that that and then if you get a lot of people on a server,
+1:581 minute, 58 secondsyou get the real time data analytics and that's in you get the data in real time.
+2:032 minutes, 3 secondsMaybe on the server end you update that as much get on that service. Maybe uh maybe that service is uh
+2:112 minutes, 11 secondsuh uh a simple service like that and you want to scale it. You can get this and you can know what trends were, what work
+2:192 minutes, 19 secondsand you get data. You get to know how much people done that thing. He has application something called um maybe an
+2:262 minutes, 26 secondsan ad service can you know utilize it to to yes an can utilize it uh you can use
+2:342 minutes, 34 secondsit as uh what is it like to hook a to you know just to gather the data to see
+2:402 minutes, 40 secondswhether how the API was being used. Uh so it's real time analytics in action.
+2:472 minutes, 47 secondsUh a more broad example is like if you have a game and you have a polical API,
+2:502 minutes, 50 secondsit's a web game, web based game, you know, and uh you have a poll at the end that's more your last match and you know
+2:592 minutes, 59 secondshow to tell your business to that uh how you want to resolve a relationship if there if there are any in the game or uh
+3:093 minutes, 9 secondsgame. Maybe some people requested this feature or maybe some people maybe some people really quit you know or some enjoyed it so much that
+3:183 minutes, 18 secondsuh so much that they they played so so so much and invited their friends to play. So um that's that's what telemetic
+3:263 minutes, 26 secondsgathering is all about. Um now I want to speak about uh uh error handling. Uh the the telecom is very special. We have we
+3:353 minutes, 35 secondshave on two two things. Now first two things the first uh so we speak now speaking about something called I call
+3:413 minutes, 41 secondsit uh real time teleament that is really um the concept where we're gathering data through um that's because the pol
+3:503 minutes, 50 secondsthe protocol command polls on it's about protocol protocol so when the protocol ps on an endpoint uh and then it's a
+3:593 minutes, 59 secondssilence it's silence it's a silent protocol it's it's just an observer the so it just observes connection between the server and the
+4:074 minutes, 7 secondsclient and that's command but the ter command here is really saying okay um this end point here uh I'm going to
+4:164 minutes, 16 secondsobserve it with the polic protocol and I'm going to get a data too so it is flexible to know how your system is
+4:234 minutes, 23 secondsbeing used and that's the poly exe telemetry command uh now now some some
+4:304 minutes, 30 secondsproblems in this um I mean uh too there's one more thing I go And this uh
+4:364 minutes, 36 secondssomething about UU ids and GU ids. Um Polore has a go ID system a global
+4:444 minutes, 44 secondsunique identifier integrated into the polic interface. Um I'm not sure how to define it yet but that's what's coming to it
+4:524 minutes, 52 secondsand that's going to be there when it's there solid and it can be there for everyone to see and use exposed to the
+4:594 minutes, 59 secondspolyore exe. Let me give example. Let me give you a concrete example. The the polyore exe has command for every voice
+5:085 minutes, 8 secondsgathering. Uh we have u U ID unique user identifier for every user on a system as
+5:175 minutes, 17 secondsa colorful unit. Maybe this person sign up for the service sign for service that solves a problem. But some we have this glo global unique identifier system as
+5:265 minutes, 26 secondspart of the terms command for for global um unique identifier for anyone on any system using making course of poly API
+5:355 minutes, 35 secondsit's not extension of um the UID we don't we didn't do that how it's implemented how it's implemented let's
+5:425 minutes, 42 secondsstart with UID UID command for polyore is uh a standard UI if you know UID UI
+5:495 minutes, 49 secondsimplementation uh for unique user identifier but uh mications in GU ID the global unique identifier we we fill the
+5:585 minutes, 58 secondsscript we don't flip the we made it so that what what the UI is it just grab you identify so for session storage
+6:066 minutes, 6 secondseverything uh just use you have a user a user maybe an end user uh maybe authenticate them authorize them you get
+6:146 minutes, 14 secondsyou get the user use the user can use that data you know who that user is but uh we have we
+6:226 minutes, 22 secondshave you see um when you fall short of when it comes to debugging and all of that uh heaviness of the political
+6:306 minutes, 30 secondssystem I I want to say that the policy gu ID is to go to for to solve this problem of debugging configuring
+6:396 minutes, 39 secondsmaybe aation we we I invented not me just me and money I'm so on my own in the business is too bright it's not too
+6:486 minutes, 48 secondsbright okay so I invented a new a new cryptography algorithm uh to create geograph global unit identifiers. Uh
+6:566 minutes, 56 secondsthis the polical GUID uh under the telemetry command and sum commands. This
+7:037 minutes, 3 secondsGUID command is special in its own right and people that care about the data really do care about the data. I mean to
+7:127 minutes, 12 secondsthe point that they're obsessed with every imperfections in data will love this command.
+7:207 minutes, 20 secondsThe GU ID is global or global unit identifier. This how it work. This how it works. So you in the old polical
+7:287 minutes, 28 secondssystem I a state machine uh for this version two. Version two is version one or so. This version the the global
+7:357 minutes, 35 secondsunique identifier was was a state machine. The state machine uh was mapped
+7:417 minutes, 41 secondsto a router. The router beh like an NFA known as a nondeterministic finest automaton.
+7:497 minutes, 49 secondswith crypto signature checks. The idea is that but it wasn't seeded. It wasn't
+7:567 minutes, 56 secondsseeded. The idea of this is to standardize. So they still use the protocol today but it wasn't seeded. So
+8:048 minutes, 4 secondsuh so in this order implementation of protocol version two version one not version
+8:108 minutes, 10 secondstwo version one not version two is to have the map states to the router a router implement the binding article the
+8:198 minutes, 19 secondsbinding side of the router you see the binding side of the
+8:268 minutes, 26 secondsrouter. So if you have a Python polyore cobalt policle that binding side
+8:358 minutes, 35 secondsis the router that handles that's handled by the coreboard cobalt driver code which is
+8:418 minutes, 41 secondsthe server that uses the binding architecture the bin to to as to work
+8:498 minutes, 49 secondswith the protocol system that uh sends requests to the server and back and back and forth. Although in version
+8:568 minutes, 56 secondsone it works we have to working logic to map the router and sim the bindings version two brings greater resource for
+9:049 minutes, 4 secondstelemetry system in the version two these are the core algorithms involved step one the telemetry command
+9:149 minutes, 14 secondsgo ID subcomand is seeded with a random critical seed
+9:219 minutes, 21 secondsuh this this ensures that uh when when it maps to route you have a newly generated uh GUID
+9:309 minutes, 30 secondsstring to a API route or endpoint or even application endpoint it doesn't
+9:379 minutes, 37 secondsmatter as long as the uh poly core can understand knows how you bound that data through the binding binding then you can
+9:459 minutes, 45 secondsalways send this to the server and can al to get the protocol get the data back the protocol is stateless always stateless it doesn't care about it just
+9:549 minutes, 54 secondsit just wakes up when you type that data when you hit bam you get the data because it's it just intercepts the data and has it back like a bouncer but here
+10:0310 minutes, 3 secondsin telemetry command you do your ID is it has seeded cryptoced and then when you a user say
+10:1310 minutes, 13 secondsyou have a bug in a program and you want to replicate it you want to rep my next when you want
+10:2010 minutes, 20 secondsto replicate a bug in a in a real life environment This is what the G. So the
+10:2710 minutes, 27 secondsfirst is seated and is seated. It's a string that's seated. It's cryptographical seed that is maybe a hash using a hash function that seeded to give a crypto signature.
+10:3910 minutes, 39 secondsthat signature in the router implementation or I'm sorry in a core
+10:4510 minutes, 45 secondspolicy of the of state like an NFA fin system that maps to a router in the
+10:5410 minutes, 54 secondsbinary system that router that router B that
+11:0211 minutes, 2 secondsrouter that router or path endpoint to any resource book
+11:0811 minutes, 8 secondsuh books uh uh um books um books uh a bank account system any
+11:1611 minutes, 16 secondsdata a service you're offering that shift that handles data for users has a router class mapping to that polic
+11:2411 minutes, 24 secondsbinding router that strangles it to a string for the end user so every end user submits a
+11:3211 minutes, 32 secondsticket a ticket system the ticketing system says that okay okay um so Every time the user updates and the hits a
+11:4011 minutes, 40 secondssnag or error in your system, we don't we don't just say okay error error. We don't just throw an
+11:4811 minutes, 48 secondserror. We want to know how the error occurred. What actions the user took. These are this this this what what
+11:5611 minutes, 56 secondsthe engine does is step two tracks every state in every state using the automator
+12:0312 minutes, 3 secondsmodel and or just image every state where they go back forward back for and buttons they click any button any button they click
+12:1212 minutes, 12 secondsthey click or any video um so it takes you to it takes you to how the system was operated uh so you can it's like a snapshot of every path You go to books,
+12:2512 minutes, 25 secondsyou want to buy a book, uh you return a book and then and then and then it throws it and then if the program if if any error happens within that program
+12:3412 minutes, 34 secondsthat within that process and say say the user um returns a book and the book return has been
+12:4312 minutes, 43 secondsaccepted and u and then instead of crashes for some unknown reason. The idea is to trace the bug where the
+12:5212 minutes, 52 secondsprogram is and that G global unique identifier in the polical system comes with time steps. Okay. And then so when
+13:0013 minuteswhen there's an end point when when there's an endpoint to that data the G ID string represents all the information
+13:0913 minutes, 9 secondsnecessary for that state of informations until colas we can enumerate that states too and rerun the
+13:1713 minutes, 17 secondsprogram retrace how the user program was done it's not about so the just rep
+13:2513 minutes, 25 secondsreplicates replicates replicate the entire system uh to failure in and refine their system
+13:3413 minutes, 34 secondsaccordingly. That is the that is exactly what the polic command does and the policy command do under
+13:4313 minutes, 43 secondsG. So when you when you're using polic when using polic make sure to pick a
+13:5013 minutes, 50 secondspick a pick a algorithm any just make sure it's a seeded seed algorithm uh that doesn't use we're using don't use
+13:5913 minutes, 59 secondsMD5 cuz that's been crashed crashed crashed but you can use SH 256 or the up to date on SH 3 if you like for if you
+14:0614 minutes, 6 secondshave properties you want to assume not zero and you want to know how your data was processed the P tele is it's a
+14:1614 minutes, 16 secondssignificant addition to it. So I expect I want you to take advantage of it and really debug the Alexa shut up and
+14:2514 minutes, 25 secondsreally debug the application. So with that in mind, I I hope to give you examples soon in
+14:3314 minutes, 33 secondsanother video. So so you can see how to actually take care of it, use it in the real world in in application
+14:4214 minutes, 42 secondssystem. So all that has integrity too and uh and you can also use so all
+14:5414 minutes, 54 secondsthat has integrity too. can make sure you can um see see how how the path user took okay how did they get navigated to
+15:0115 minutes, 1 secondthe page who made what call and it gives you it gives everyone uh developers anyone uh in developer
+15:1015 minutes, 10 secondsteam we have our responsibilities even though we're developers anyone in the team working on a polic project with a binding architecture uh to understand
+15:1815 minutes, 18 secondswhat's what um what is happening in their own programs
+15:2415 minutes, 24 secondsand how to adjust the architecture these or
+15:3015 minutes, 30 secondsnot or how to treat errors. So to get insight on their data, get insight
+15:3915 minutes, 39 secondson oh so they can get insight on everything they do and understand everything that's happening within their program when by from the end user too.
+15:5015 minutes, 50 secondsSo one thing I want to say is sometimes can you attach this to ticket too? So when a when a user when a user uh when a when a bug occurs like this and it's not
+15:5915 minutes, 59 secondsa feature it's a bug. I mean literally a bug you then uh create a ticket uh you can create a ticket uh on your
+16:0716 minutes, 7 secondsendpoints uh on your server and attach it to the goid and u UID systems. Note G
+16:1416 minutes, 14 secondsUI you never it's like a session thing for session you need ident for users uh
+16:2016 minutes, 20 secondson your system you need user identifier and is just a global identifier but can you still use G ID
+16:2816 minutes, 28 secondsfor the UI ID too it's not really uh it's not really it's not it works
+16:3516 minutes, 35 secondsbecause it's discrim so you just can use you can use G and and UID uh you can use
+16:4216 minutes, 42 secondsit you place a with if you feel for your needs for for your needs. Okay, thank you for watching. Subscribe to my
+16:5016 minutes, 50 secondschannel and uh hope to see more people soon here and any questions you can message me in the comments below. Just leave them in the comments below. I'll
+16:5816 minutes, 58 secondsI'll reply to them. Okay, thank you and um goodbye for now. Take care. Subscribe to my YouTube channel.

@@ -1,0 +1,111 @@
+PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> ls
+
+
+    Directory: C:\Users\OBINexus\libpolycall-v1\libpolycall-v1
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        07/03/2026     14:34                build
+d-----        07/03/2026     15:15                include
+d-----        07/03/2026     15:22                lib
+d-----        07/03/2026     15:22                obj
+d-----        07/03/2026     13:35                scripts
+d-----        07/03/2026     15:20                src
+d-----        07/03/2026     13:27                test
+d-----        07/03/2026     13:35                tools
+-a----        07/03/2026     13:27            793 .gitignore
+-a----        07/03/2026     15:30           9420 build-windows.ps1
+-a----        07/03/2026     13:27          33834 favicon.png
+-a----        07/03/2026     13:27          22024 index.html
+-a----        07/03/2026     13:27           1099 LICENSE
+-a----        07/03/2026     13:27          29747 main.c
+-a----        07/03/2026     15:30           9846 Makefile
+-a----        07/03/2026     13:27            631 polycall.cfg
+-a----        07/03/2026     13:27           4985 README.md
+-a----        07/03/2026     13:27         152280 README.pdf
+-a----        07/03/2026     15:31          13172 WINDOWS_BUILD_GUIDE.md
+
+
+PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> cd ..
+PS C:\Users\OBINexus\libpolycall-v1> ls
+
+
+    Directory: C:\Users\OBINexus\libpolycall-v1
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        07/03/2026     14:13                @bindings
+d-----        07/03/2026     13:41                @drivers
+d-----        07/03/2026     14:18                @extensions
+d-----        07/03/2026     14:17                @plugins
+d-----        07/03/2026     14:20                config
+d-----        07/03/2026     14:02                daemon
+d-----        07/03/2026     14:09                docs
+d-----        07/03/2026     14:45                examples
+d-----        07/03/2026     15:31                libpolycall-v1
+d-----        07/03/2026     13:33                projects
+d-----        07/03/2026     14:50                schema
+d-----        07/03/2026     13:43                scripts
+d-----        07/03/2026     13:41                sdk
+d-----        07/03/2026     15:26                snapshots
+-a----        07/03/2026     14:27          26444 ARCHITECTURE_REVIEW.md
+-a----        07/03/2026     15:32          17938 BUILD_SYSTEM_SUMMARY.md
+-a----        07/03/2026     15:12           9839 DLL_EXPORT_FILES_CREATED.txt
+-a----        07/03/2026     15:23          15253 DLL_EXPORT_FINAL_CHECKLIST.md
+-a----        07/03/2026     15:10          11298 DLL_EXPORT_GUIDE.md
+-a----        07/03/2026     15:11           8924 DLL_EXPORT_SUMMARY.md
+-a----        07/03/2026     13:43           1607 docker-compose.yml
+-a----        07/03/2026     13:43           2405 Dockerfile
+-a----        07/03/2026     13:59         140670 favicon.png
+-a----        07/03/2026     14:47          11491 FILES_DELIVERED.md
+-a----        07/03/2026     14:28          15562 IMPLEMENTATION_CHECKLIST.md
+-a----        07/03/2026     13:43           1089 LICENSE
+-a----        07/03/2026     13:43           5884 LICENSE.md
+-a----        07/03/2026     14:45          10258 Polycallfile.toml
+-a----        07/03/2026     14:46          14356 POLYCALLFILE_IMPLEMENTATION_SUMMARY.md
+-a----        07/03/2026     14:46          12560 POLYCALLFILE_QUICKSTART.md
+-a----        07/03/2026     14:44          32318 POLYCALLFILE_SPECIFICATION.md
+-a----        07/03/2026     15:32          14585 WINDOWS_BUILD_IMPLEMENTATION.md
+
+
+PS C:\Users\OBINexus\libpolycall-v1> cd .\libpolycall-v1\
+PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> ls
+
+
+    Directory: C:\Users\OBINexus\libpolycall-v1\libpolycall-v1
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        07/03/2026     14:34                build
+d-----        07/03/2026     15:15                include
+d-----        07/03/2026     15:22                lib
+d-----        07/03/2026     15:22                obj
+d-----        07/03/2026     13:35                scripts
+d-----        07/03/2026     15:20                src
+d-----        07/03/2026     13:27                test
+d-----        07/03/2026     13:35                tools
+-a----        07/03/2026     13:27            793 .gitignore
+-a----        07/03/2026     15:30           9420 build-windows.ps1
+-a----        07/03/2026     13:27          33834 favicon.png
+-a----        07/03/2026     13:27          22024 index.html
+-a----        07/03/2026     13:27           1099 LICENSE
+-a----        07/03/2026     13:27          29747 main.c
+-a----        07/03/2026     15:30           9846 Makefile
+-a----        07/03/2026     13:27            631 polycall.cfg
+-a----        07/03/2026     13:27           4985 README.md
+-a----        07/03/2026     13:27         152280 README.pdf
+-a----        07/03/2026     15:31          13172 WINDOWS_BUILD_GUIDE.md
+
+
+PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> .\build-windows.ps1 -Target Debug
+.\build-windows.ps1 : File C:\Users\OBINexus\libpolycall-v1\libpolycall-v1\build-windows.ps1 cannot be loaded because running scripts is disabled on this system. For more
+information, see about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
+At line:1 char:1
++ .\build-windows.ps1 -Target Debug
++ ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : SecurityError: (:) [], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1>

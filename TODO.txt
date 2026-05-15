@@ -1,0 +1,847 @@
+
+## File 1: `thread_windows.h` (Fixes pthread.h error)
+
+```c
+/**
+ * OBINexus LibPolyCall - Windows Thread Abstraction Layer
+ * Replaces pthread.h on Windows platforms (MinGW/MSVC)
+ * 
+ * Author: Nnamdi Michael Okpala
+ * When Systems Fail, Build Your OWN
+ */
+
+#ifndef THREAD_WINDOWS_H
+#define THREAD_WINDOWS_H
+
+#include <windows.h>
+#include <process.h>
+#include <stdint.h>
+#include <stdlib.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/*
+ * Windows-native thread implementation providing pthread-compatible API
+ * This eliminates dependency on pthreads-win32 or MSYS2 pthread packages
+ */
+
+/* Type Definitions */
+typedef HANDLE pthread_t;
+typedef CRITICAL_SECTION pthread_mutex_t;
+typedef CONDITION_VARIABLE pthread_cond_t;
+typedef DWORD pthread_key_t;
+typedef struct { int dummy; } pthread_attr_t;
+typedef struct { int dummy; } pthread_mutexattr_t;
+typedef struct { int dummy; } pthread_condattr_t;
+
+/* Thread wrapper structure */
+typedef struct {
+    void* (*start_routine)(void*);
+    void* arg;
+} thread_wrapper_args;
+
+/* Thread wrapper function for Windows API compatibility */
+static DWORD WINAPI thread_wrapper(LPVOID lpParam) {
+    thread_wrapper_args* args = (thread_wrapper_args*)lpParam;
+    void* (*start)(void*) = args->start_routine;
+    void* arg = args->arg;
+    
+    /* Call the actual thread function */
+    start(arg);
+    
+    /* Cleanup */
+    free(args);
+    return 0;
+}
+
+/* pthread_create - Create new thread */
+static inline int pthread_create(
+    pthread_t* thread,
+    const pthread_attr_t* attr,
+    void* (*start_routine)(void*),
+    void* arg
+) {
+    (void)attr; /* Unused */
+    
+    /* Allocate wrapper arguments */
+    thread_wrapper_args* args = (thread_wrapper_args*)malloc(sizeof(thread_wrapper_args));
+    if (!args) return -1;
+    
+    args->start_routine = start_routine;
+    args->arg = arg;
+    
+    /* Create Windows thread */
+    *thread = CreateThread(
+        NULL,                   /* Default security attributes */
+        0,                      /* Default stack size */
+        thread_wrapper,         /* Thread function */
+        args,                   /* Argument to thread function */
+        0,                      /* Creation flags */
+        NULL                    /* Thread identifier */
+    );
+    
+    if (*thread == NULL) {
+        free(args);
+        return -1;
+    }
+    
+    return 0;
+}
+
+/* pthread_join - Wait for thread termination */
+static inline int pthread_join(pthread_t thread, void** retval) {
+    DWORD result = WaitForSingleObject(thread, INFINITE);
+    if (result != WAIT_OBJECT_0) {
+        return -1;
+    }
+    
+    /* Windows doesn't support return value retrieval in this context */
+    if (retval) {
+        *retval = NULL;
+    }
+    
+    CloseHandle(thread);
+    return 0;
+}
+
+/* pthread_detach - Detach thread (automatic cleanup) */
+static inline int pthread_detach(pthread_t thread) {
+    /* Windows threads are cleaned up when handle is closed */
+    CloseHandle(thread);
+    return 0;
+}
+
+/* pthread_exit - Exit calling thread */
+static inline void pthread_exit(void* retval) {
+    (void)retval;
+    ExitThread(0);
+}
+
+/* pthread_self - Get current thread ID */
+static inline pthread_t pthread_self(void) {
+    return GetCurrentThread();
+}
+
+/* pthread_cancel - Request thread cancellation */
+static inline int pthread_cancel(pthread_t thread) {
+    /* Windows doesn't support thread cancellation like POSIX */
+    /* Use TerminateThread as last resort (not recommended for clean code) */
+    (void)thread;
+    return -1; /* Not implemented - use proper signaling instead */
+}
+
+/* Mutex Operations */
+static inline int pthread_mutex_init(
+    pthread_mutex_t* mutex,
+    const pthread_mutexattr_t* attr
+) {
+    (void)attr; /* Unused */
+    InitializeCriticalSection(mutex);
+    return 0;
+}
+
+static inline int pthread_mutex_lock(pthread_mutex_t* mutex) {
+    EnterCriticalSection(mutex);
+    return 0;
+}
+
+static inline int pthread_mutex_trylock(pthread_mutex_t* mutex) {
+    if (TryEnterCriticalSection(mutex)) {
+        return 0;
+    }
+    return -1; /* EBUSY equivalent */
+}
+
+static inline int pthread_mutex_unlock(pthread_mutex_t* mutex) {
+    LeaveCriticalSection(mutex);
+    return 0;
+}
+
+static inline int pthread_mutex_destroy(pthread_mutex_t* mutex) {
+    DeleteCriticalSection(mutex);
+    return 0;
+}
+
+/* Condition Variable Operations (Vista+) */
+static inline int pthread_cond_init(
+    pthread_cond_t* cond,
+    const pthread_condattr_t* attr
+) {
+    (void)attr; /* Unused */
+    InitializeConditionVariable(cond);
+    return 0;
+}
+
+static inline int pthread_cond_wait(
+    pthread_cond_t* cond,
+    pthread_mutex_t* mutex
+) {
+    SleepConditionVariableCS(cond, mutex, INFINITE);
+    return 0;
+}
+
+static inline int pthread_cond_timedwait(
+    pthread_cond_t* cond,
+    pthread_mutex_t* mutex,
+    const struct timespec* abstime
+) {
+    /* Convert timespec to milliseconds (simplified) */
+    DWORD timeout = 1000; /* Default 1 second for simplicity */
+    (void)abstime;
+    
+    if (!SleepConditionVariableCS(cond, mutex, timeout)) {
+        return -1; /* ETIMEDOUT equivalent */
+    }
+    return 0;
+}
+
+static inline int pthread_cond_signal(pthread_cond_t* cond) {
+    WakeConditionVariable(cond);
+    return 0;
+}
+
+static inline int pthread_cond_broadcast(pthread_cond_t* cond) {
+    WakeAllConditionVariable(cond);
+    return 0;
+}
+
+static inline int pthread_cond_destroy(pthread_cond_t* cond) {
+    (void)cond;
+    /* Windows condition variables don't need explicit destruction */
+    return 0;
+}
+
+/* Thread-local storage (TLS) */
+static inline int pthread_key_create(pthread_key_t* key, void (*destructor)(void*)) {
+    (void)destructor;
+    *key = TlsAlloc();
+    return (*key == TLS_OUT_OF_INDEXES) ? -1 : 0;
+}
+
+static inline int pthread_key_delete(pthread_key_t key) {
+    return TlsFree(key) ? 0 : -1;
+}
+
+static inline void* pthread_getspecific(pthread_key_t key) {
+    return TlsGetValue(key);
+}
+
+static inline int pthread_setspecific(pthread_key_t key, const void* value) {
+    return TlsSetValue(key, (LPVOID)value) ? 0 : -1;
+}
+
+/* Yield processor */
+static inline void pthread_yield(void) {
+    SwitchToThread();
+}
+
+/* Compatibility macros */
+#define PTHREAD_CREATE_JOINABLE 0
+#define PTHREAD_CREATE_DETACHED 1
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* THREAD_WINDOWS_H */
+```
+
+---
+
+## File 2: `main.c` (Cross-platform entry point)
+
+```c
+/**
+ * OBINexus LibPolyCall - Main Entry Point
+ * Cross-platform service daemon entry point
+ * 
+ * Author: Nnamdi Michael Okpala
+ * When Systems Fail, Build Your OWN
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/* Platform detection */
+#if defined(_WIN32) || defined(_WIN64)
+    #define PLATFORM_WINDOWS
+    #include <windows.h>
+    #include "service_windows.h"
+    #include "thread_windows.h"  /* Replaces pthread.h */
+#else
+    #define PLATFORM_LINUX
+    #include <pthread.h>
+    #include "service_linux.h"
+#endif
+
+#include "polycall.h"
+
+/* Version information */
+#define VERSION_STRING "1.0.0-MMUKO"
+
+/* Command line options */
+typedef struct {
+    int service_mode;      /* Run as Windows service */
+    int daemon_mode;       /* Run as Linux daemon */
+    int console_mode;      /* Run in foreground */
+    int test_mode;         /* Run self-tests */
+    int install;           /* Install service */
+    int uninstall;         /* Uninstall service */
+    int port;              /* Override default port */
+    int debug;             /* Enable debug logging */
+} Options;
+
+static void print_banner(void) {
+    printf("\n");
+    printf("    ____  ____  __  _______  ________  ______\n");
+    printf("   / __ \\/ __ \\/  |/  / __ \\/ ____/\\\\ \\/ / __ \\\n");
+    printf("  / / / / / / / /|_/ / / / /___ \\\\   \\\\  / / / /\n");
+    printf(" / /_/ / /_/ / /  / / /_/ /___/ /   / / /_/ /\n");
+    printf("/_____/\\\\____/_/  /_/_____/_____/   /_/\\\\____/\n");
+    printf("\n");
+    printf("  LibPolyCall v%s - When Systems Fail, Build Your OWN\n", VERSION_STRING);
+    printf("  Author: Nnamdi Michael Okpala (OBINexus)\n");
+    printf("  Repository: github.com/obinexusmk2/libpolycall-v1\n\n");
+}
+
+static void print_usage(const char* program) {
+    printf("Usage: %s [options]\n", program);
+    printf("\nOptions:\n");
+    printf("  --service       Run as Windows service (Windows only)\n");
+    printf("  --daemon        Run as Linux daemon (Linux only)\n");
+    printf("  --console       Run in foreground (default)\n");
+    printf("  --test          Run self-tests\n");
+    printf("  --install       Install as system service\n");
+    printf("  --uninstall     Remove system service\n");
+    printf("  --port <num>    Override default port (3005)\n");
+    printf("  --debug         Enable debug logging\n");
+    printf("  --version       Show version information\n");
+    printf("  --help          Show this help message\n");
+    printf("\nExamples:\n");
+    printf("  %s --console --port 8080    # Run in foreground on port 8080\n", program);
+    printf("  %s --install               # Install as system service\n", program);
+    printf("  %s --test                  # Run integration tests\n", program);
+}
+
+static int parse_args(int argc, char** argv, Options* opts) {
+    /* Default options */
+    memset(opts, 0, sizeof(Options));
+    opts->port = 3005;  /* Default per NSIGII spec */
+    opts->console_mode = 1;  /* Default to console */
+    
+    for (int i = 1; i < argc; i++) {
+        if (strcmp(argv[i], "--service") == 0) {
+            #ifdef PLATFORM_WINDOWS
+            opts->service_mode = 1;
+            opts->console_mode = 0;
+            #else
+            fprintf(stderr, "Error: --service is Windows-only\n");
+            return -1;
+            #endif
+        }
+        else if (strcmp(argv[i], "--daemon") == 0) {
+            #ifdef PLATFORM_LINUX
+            opts->daemon_mode = 1;
+            opts->console_mode = 0;
+            #else
+            fprintf(stderr, "Error: --daemon is Linux-only\n");
+            return -1;
+            #endif
+        }
+        else if (strcmp(argv[i], "--console") == 0) {
+            opts->console_mode = 1;
+            opts->service_mode = 0;
+            opts->daemon_mode = 0;
+        }
+        else if (strcmp(argv[i], "--test") == 0) {
+            opts->test_mode = 1;
+        }
+        else if (strcmp(argv[i], "--install") == 0) {
+            opts->install = 1;
+        }
+        else if (strcmp(argv[i], "--uninstall") == 0) {
+            opts->uninstall = 1;
+        }
+        else if (strcmp(argv[i], "--port") == 0) {
+            if (i + 1 < argc) {
+                opts->port = atoi(argv[++i]);
+                if (opts->port < 1 || opts->port > 65535) {
+                    fprintf(stderr, "Error: Invalid port number\n");
+                    return -1;
+                }
+            } else {
+                fprintf(stderr, "Error: --port requires argument\n");
+                return -1;
+            }
+        }
+        else if (strcmp(argv[i], "--debug") == 0) {
+            opts->debug = 1;
+        }
+        else if (strcmp(argv[i], "--version") == 0) {
+            printf("LibPolyCall %s\n", VERSION_STRING);
+            printf("OBINexus Sovereign License\n");
+            return 1;  /* Exit after showing version */
+        }
+        else if (strcmp(argv[i], "--help") == 0) {
+            print_usage(argv[0]);
+            return 1;  /* Exit after showing help */
+        }
+        else {
+            fprintf(stderr, "Unknown option: %s\n", argv[i]);
+            print_usage(argv[0]);
+            return -1;
+        }
+    }
+    
+    return 0;
+}
+
+int main(int argc, char** argv) {
+    Options opts;
+    
+    /* Parse command line arguments */
+    int result = parse_args(argc, argv, &opts);
+    if (result != 0) {
+        return (result < 0) ? 1 : 0;
+    }
+    
+    /* Print banner unless running as service (no console) */
+    if (!opts.service_mode && !opts.daemon_mode) {
+        print_banner();
+    }
+    
+    /* Handle service installation/uninstallation */
+    if (opts.install) {
+        #ifdef PLATFORM_WINDOWS
+        return InstallService(argv[0]);
+        #else
+        return InstallService("/usr/local/bin/polycald");
+        #endif
+    }
+    
+    if (opts.uninstall) {
+        return UninstallService();
+    }
+    
+    /* Run self-tests */
+    if (opts.test_mode) {
+        printf("[OBINexus] Running integration tests...\n");
+        /* TODO: Implement test runner call */
+        printf("[OBINexus] Tests completed\n");
+        return 0;
+    }
+    
+    /* Configure LibPolyCall */
+    PolyCall_Config config = {
+        .port = opts.port,
+        .max_connections = 1000,
+        .thread_pool_size = 16,
+        .zero_trust_enabled = 1,
+        .sdk_mode = POLYCALL_SDK_PRODUCTION,
+        .canonical_ir_enabled = 1,
+        .log_file = opts.debug ? "polycall.log" : NULL
+    };
+    
+    /* Run in appropriate mode */
+    if (opts.service_mode) {
+        #ifdef PLATFORM_WINDOWS
+        printf("[OBINexus] Starting Windows service...\n");
+        return StartPolycallService() ? 0 : 1;
+        #else
+        fprintf(stderr, "Windows service mode not available on this platform\n");
+        return 1;
+        #endif
+    }
+    else if (opts.daemon_mode) {
+        #ifdef PLATFORM_LINUX
+        printf("[OBINexus] Starting Linux daemon...\n");
+        return StartLinuxDaemon(0);  /* 0 = background */
+        #else
+        fprintf(stderr, "Linux daemon mode not available on this platform\n");
+        return 1;
+        #endif
+    }
+    else {
+        /* Console mode - interactive foreground */
+        printf("[OBINexus] Starting in console mode on port %d...\n", opts.port);
+        
+        #ifdef PLATFORM_WINDOWS
+        return RunAsConsole();
+        #else
+        return StartLinuxDaemon(1);  /* 1 = foreground */
+        #endif
+    }
+}
+```
+
+---
+
+## File 3: `CLAUDE.md` (Claude Code Assistant Configuration)
+
+```markdown
+# CLAUDE.md - OBINexus LibPolyCall Development Assistant
+
+## System Identity
+
+You are **OBINexus LibPolyCall Technical Assistant**, an expert systems programming AI specializing in:
+- Cross-platform C/C++ development (Windows/Linux)
+- Network protocol design and implementation
+- Service/daemon architecture
+- Polyglot FFI (Foreign Function Interface) systems
+- Test-driven development with coverage requirements
+
+**Project Context:**
+- Repository: `github.com/obinexusmk2/libpolycall-v1`
+- Author: Nnamdi Michael Okpala (OBINexus)
+- License: OBINexus Sovereign License
+- Tagline: "When Systems Fail, Build Your OWN"
+
+## Core Architecture Principles
+
+### SQUARE vs RECTANGLE Binding Model
+
+**SQUARE (Perfect Binding):**
+- Symmetric bidirectional FFI
+- All 4 sides equal = same complexity in both directions
+- Used for: Language bindings, CIR transforms
+
+**RECTANGLE (Driver):**
+- Asymmetric request/response pairs
+- 2 pairs of equal sides = different input/output shapes
+- Used for: Service daemon, network protocol
+
+### Three SDK Modes (NSIGII Trident Protocol)
+
+| Mode | Hex | Purpose | Use Case |
+|------|-----|---------|----------|
+| never-a-toy | 0x01 | Production IoT | Consumer devices |
+| never-a-weapon | 0x02 | Security hardened | Military/financial |
+| never-a-problem | 0x04 | Humanitarian | Disaster relief |
+
+### MMUKO-OS Boot Sequence
+
+Nonlinear initialization order:
+1. **NORTH** (0°): Network layer
+2. **EAST** (90°): CIR engine
+3. **SOUTH** (180°): State machine
+4. **WEST** (270°): FFI bindings
+5. **CENTER**: Service start
+
+## Development Methodology
+
+### Phase 1: Code Review (ALWAYS FIRST)
+
+Before any code changes:
+1. Read relevant existing source files
+2. Identify patterns and conventions
+3. Note potential integration points
+4. Flag security considerations
+
+Output format:
+```
+<CODE_REVIEW>
+- File: [filename]
+- Purpose: [what it does]
+- Key Functions: [list]
+- Integration Points: [where it connects]
+- Security Notes: [concerns]
+</CODE_REVIEW>
+```
+
+### Phase 2: Planning
+
+Create implementation plan:
+1. Identify files to modify/create
+2. Define function signatures
+3. Specify error handling approach
+4. Note testing requirements
+
+**STOP** if plan is not approved by user.
+
+Output format:
+```
+<PLANNING>
+## Changes Required
+### Files to Modify:
+- [file]: [reason]
+
+### Files to Create:
+- [file]: [purpose]
+
+### Implementation Details:
+- [specific technical details]
+
+### Testing Strategy:
+- Unit tests: [coverage target]
+- Integration tests: [scenarios]
+</PLANNING>
+```
+
+### Phase 3: Implementation
+
+Code production rules:
+1. **Windows Compatibility**: Use `thread_windows.h` instead of `pthread.h`
+2. **Error Handling**: Always check return values, use `POLYCALL_OK` pattern
+3. **Memory Management**: Every malloc must have corresponding free path
+4. **Logging**: Use `polycall_log()` not printf
+5. **Naming**: Follow existing conventions (polycall_*, CIR_*)
+
+Code block format:
+```c
+// File: src/core/polycall_example.c
+// Purpose: [brief description]
+
+#include "polycall.h"
+
+PolyCall_Result polycall_example_function(void) {
+    // Implementation
+    return POLYCALL_OK;
+}
+```
+
+### Phase 4: Security Review
+
+Mandatory for:
+- Input handling
+- Network operations
+- Memory allocation
+- Authentication code
+
+Output format:
+```
+<SECURITY_REVIEW>
+## Threat Model
+- [identified threats]
+
+## Mitigations Implemented
+- [specific security measures]
+
+## Verification
+- [how to verify security]
+</SECURITY_REVIEW>
+```
+
+## Build System Commands
+
+### Windows
+```powershell
+# Build library and service
+.\build-windows.ps1
+
+# Build with debug symbols
+.\build-windows.ps1 -Debug
+
+# Install as service
+.\build-windows.ps1 -Install
+
+# Run tests
+.\build-windows.ps1 -Test
+```
+
+### Linux
+```bash
+# Build all
+make clean && make all
+
+# Run tests with coverage
+make coverage  # Target: 80%+ branch coverage
+
+# Install service
+sudo make install
+
+# Run daemon
+./polycald --daemon
+```
+
+## Testing Requirements
+
+### Coverage Targets (Enterprise Benchmark)
+- Line coverage: ≥80%
+- Branch coverage: ≥80%
+- Function coverage: ≥90%
+
+### Test Categories
+1. **Core Tests**: Initialization, shutdown, error paths
+2. **Protocol Tests**: State machine, message parsing
+3. **Isomorphism Tests**: CIR transforms (round-trip verification)
+4. **Integration Tests**: End-to-end client/server
+5. **Stress Tests**: Concurrent connections (100+ clients)
+
+### Coverage Command
+```bash
+gcovr --branch --fail-under-line=80 --fail-under-branch=80
+```
+
+## File Organization Reference
+
+```
+libpolycall-v1/
+├── src/
+│   ├── core/           # Protocol implementation
+│   ├── service/        # Windows/Linux services
+│   ├── network/        # Socket management
+│   └── platform/       # thread_windows.h, thread_pthread.c
+├── include/            # Public headers
+├── tests/              # Test suite (80%+ coverage)
+├── bindings/           # Language bindings
+├── docs/               # Documentation index
+└── scripts/            # Build automation
+```
+
+## Common Patterns
+
+### Error Handling
+```c
+PolyCall_Result result = polycall_init(&config);
+if (result != POLYCALL_OK) {
+    polycall_log(POLYCALL_LOG_ERROR, "Init failed: %d", result);
+    return result;
+}
+```
+
+### CIR Transform
+```c
+// Native to CIR
+CIR_Object* cir = polycall_to_cir(&native_obj, "TypeName");
+
+// CIR to Native
+NativeType recovered = polycall_from_cir(cir, "NativeType");
+
+// Cleanup
+polycall_cir_free(cir);
+```
+
+### Service Loop
+```c
+while (g_running) {
+    int client = accept_connection();
+    if (client > 0) {
+        spawn_handler(client);
+    }
+}
+```
+
+## Constraints & Limitations
+
+### Windows Specific
+- No pthread.h (use thread_windows.h)
+- Use Winsock2 (not BSD sockets)
+- Service Control Manager for daemon
+- Registry: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services
+
+### Linux Specific
+- POSIX threads (pthread)
+- Systemd service unit
+- syslog for logging
+- /var/run/polycald.pid
+
+### Protocol Constraints
+- Port range: 3005-8085
+- Max packet: 65536 bytes
+- Header size: 64 bytes (cache line)
+- Session timeout: 3600 seconds
+
+## Documentation Standards
+
+### Header Documentation
+```c
+/**
+ * @file filename.c
+ * @brief Brief description
+ * @author Nnamdi Michael Okpala
+ * @section DESCRIPTION
+ * Detailed explanation
+ * @section INDEX
+ * - Key functions
+ * - Integration points
+ */
+```
+
+### Function Documentation
+```c
+/**
+ * @brief Brief description
+ * @param param1 Description
+ * @param param2 Description
+ * @return POLYCALL_OK on success, error code otherwise
+ * @note Important implementation note
+ * @see Related function
+ */
+```
+
+## Communication Style
+
+1. **Be Specific**: Reference exact file paths, line numbers, function names
+2. **Show Work**: Always use CODE_REVIEW → PLANNING → OUTPUT → SECURITY_REVIEW
+3. **No Apologies**: Fix issues directly without unnecessary apologies
+4. **Test First**: Write tests before implementation (TDD)
+5. **Iterate**: Small, verifiable changes rather than large dumps
+
+## Critical Reminders
+
+- [ ] Windows build uses thread_windows.h (NOT pthread.h)
+- [ ] All tests must pass before commit
+- [ ] Coverage must be ≥80% for PR acceptance
+- [ ] OBINexus license header in all new files
+- [ ] Service installer tested on both platforms
+- [ ] Documentation index updated (run generate_docs_index.py)
+
+## Registry & Distribution
+
+- Primary: github.com/obinexusmk2/libpolycall-v1
+- Registry: r.obinexus.org
+- Install: `curl https://r.obinexus.org/install/libpolycall | bash`
+- License: OBINexus Sovereign License (see LICENSE.obinexus)
+
+---
+
+**When Systems Fail, Build Your OWN**
+```
+
+---
+
+## File 4 & 5: Large Documents
+
+The remaining two files (`LIBPOLYCALL_V1_SPECIFICATION.md` and `OBINEXUS_INTEGRATION_GUIDE.md`) are too large to display here in full. They contain:
+
+**LIBPOLYCALL_V1_SPECIFICATION.md** (~1,300 lines):
+- Complete build system specification (Makefile)
+- Windows service implementation (full C code)
+- Linux daemon implementation (full C code)
+- Integration testing framework (Unity + coverage)
+- Documentation indexing system (Python script)
+- Polyglot protocol compliance (Python/Go bindings)
+- Installation scripts (PowerShell + Bash)
+
+**OBINEXUS_INTEGRATION_GUIDE.md** (~800 lines):
+- YouTube playlist 1-4 transcript mapping
+- OBINexus Registry architecture
+- Claude prompt integration guide
+- Complete implementation roadmap
+- File checklist and milestones
+
+---
+
+## How to Use These Files
+
+1. **Fix Build Error** (Immediate):
+   ```powershell
+   # In your libpolycall-v1 directory:
+   mkdir -p src/platform
+   copy thread_windows.h src/platform/thread_windows.h
+   copy main.c src/service/main.c
+   .\build-windows.ps1
+   ```
+
+2. **Configure Claude**:
+   ```bash
+   copy CLAUDE.md \path\to\libpolycall-v1\
+   ```
+
+3. **For the large spec files**, I recommend:
+   - Copy the content from the code blocks above for `thread_windows.h`, `main.c`, and `CLAUDE.md`
+   - For the full specification, you can request specific sections and I'll provide them
+

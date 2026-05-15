@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+
+  # Production runtime
+  libpolycall:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    image: obinexus/libpolycall:v2
+    container_name: libpolycall-v2
+    networks:
+      - rift-network
+    restart: unless-stopped
+    environment:
+      - POLYCALL_ENV=production
+      - ZERO_TRUST=enabled
+
+  # Dev shell — source mounted, rebuild inside
+  libpolycall-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    image: obinexus/libpolycall-dev:v2
+    container_name: libpolycall-dev
+    volumes:
+      - .:/libpolycall          # live source mount
+      - build-cache:/_docker_build
+    working_dir: /libpolycall
+    networks:
+      - rift-network
+    environment:
+      - CMAKE_BUILD_TYPE=Debug
+    command: tail -f /dev/null   # keep alive for docker exec
+    stdin_open: true
+    tty: true
+
+  # Test — builds and verifies
+  libpolycall-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    container_name: libpolycall-test
+    volumes:
+      - .:/libpolycall
+    working_dir: /libpolycall
+    command: >
+      sh -c "
+        bash check_compile.sh &&
+        mkdir -p _docker_build &&
+        cd _docker_build &&
+        cmake -DCMAKE_BUILD_TYPE=Debug .. &&
+        make -j$(nproc) &&
+        echo '[GREEN] libpolycall-v2 build verified' &&
+        ls _docker_build/
+      "
+
+volumes:
+  build-cache:
+    name: libpolycall-v2-build-cache
+
+networks:
+  rift-network:
+    name: rift-network
+    driver: bridge

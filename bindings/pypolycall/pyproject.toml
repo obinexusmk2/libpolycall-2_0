@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pypolycall"
+version = "1.0.0"
+description = "LibPolyCall Trial v1 Python Binding - Protocol-compliant adapter"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Nnamdi Michael Okpala", email = "contact@obinexuscomputing.com" }
+]
+requires-python = ">=3.8"
+keywords = ["polycall", "obinexus", "protocol", "libpolycall", "zero-trust"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "aiohttp>=3.8.0",
+    "websockets>=11.0.0",
+    "httpx>=0.24.0",
+    "msgpack>=1.0.0",
+    "pydantic>=2.0.0",
+    "cryptography>=41.0.0",
+    "PyYAML>=6.0.0",
+    "structlog>=23.0.0",
+    "python-dotenv>=1.0.0",
+    "cffi>=1.15.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+telemetry = ["prometheus-client>=0.17.0"]
+crypto = ["pycryptodome>=3.18.0", "PyJWT>=2.8.0"]
+
+[project.scripts]
+pypolycall = "pypolycall.cli.main:main"
+
+[project.urls]
+Homepage = "https://github.com/obinexusmk2/pypolycall"
+Repository = "https://github.com/obinexusmk2/pypolycall"
+Documentation = "https://docs.obinexuscomputing.com/libpolycall"
+"Bug Reports" = "https://gitlab.com/obinexuscomputing/libpolycall-v1trial/-/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pypolycall*"]
+
+[tool.setuptools.package-data]
+pypolycall = ["config/*.json", "config/*.yaml", "templates/*.py"]

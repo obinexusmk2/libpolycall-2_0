@@ -1,0 +1,25 @@
+# .polycallrc - Per-Binding Configuration Template
+# Place this file in your project root or binding directory.
+#
+# This configures how a specific language binding connects to the
+# polycall protocol daemon.
+
+# Connection settings
+host        127.0.0.1
+port        8084
+protocol    http
+
+# Workspace
+workspace   /var/lib/polycall/workspace
+
+# Binding identity
+binding     node
+version     2.0.0
+
+# FFI bridge
+ffi_mode    native
+ffi_path    /usr/local/lib/libpolycall.so
+
+# Logging
+log_level   info
+log_file    /var/log/polycall/binding.log

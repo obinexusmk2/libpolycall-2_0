@@ -1,0 +1,84 @@
+.TH CONFIG.POLYCALL 5 "2026-02-14" "LibPolycall 2.0.0" "File Formats"
+.SH NAME
+config.polycall \- LibPolycall V2 configuration file format
+.SH DESCRIPTION
+The
+.B config.polycall
+file defines the server bindings, security policy, telemetry settings,
+edge computing, and microservice isolation for the polycall protocol daemon.
+.SH SYNTAX
+The configuration uses a block-based syntax:
+.PP
+.nf
+server <name> {
+    <key>    <value>
+    ...
+}
+
+security {
+    <key>    <value>
+    ...
+}
+
+telemetry {
+    <key>    <value>
+    ...
+}
+.fi
+.PP
+Lines beginning with # are comments.
+.SH SERVER BLOCKS
+Each server block defines a protocol binding:
+.TP
+.B port \fI<number>\fR
+TCP port to listen on (e.g., 8084).
+.TP
+.B bind \fI<address>\fR
+IP address to bind to (e.g., 127.0.0.1, 0.0.0.0).
+.TP
+.B protocol \fI<type>\fR
+Protocol type: http, reverse_proxy.
+.TP
+.B max_clients \fI<number>\fR
+Maximum concurrent client connections.
+.TP
+.B timeout \fI<seconds>\fR
+Connection timeout in seconds.
+.SH SECURITY BLOCK
+.TP
+.B mode \fI<policy>\fR
+Security mode: zero_trust (default).
+.TP
+.B tls_enabled \fI<bool>\fR
+Enable TLS encryption (true/false).
+.TP
+.B auth_required \fI<bool>\fR
+Require authentication for all requests.
+.TP
+.B hash_algorithm \fI<algo>\fR
+Hash algorithm for GUID generation: sha256, sha3.
+.SH TELEMETRY BLOCK
+.TP
+.B enabled \fI<bool>\fR
+Enable telemetry gathering.
+.TP
+.B guid_seed \fI<value>\fR
+Seed value for GUID generation (auto for random seed).
+.TP
+.B guid_algorithm \fI<algo>\fR
+Cryptographic hash for GUID: sha256, sha3.
+.TP
+.B uuid_session \fI<bool>\fR
+Enable per-session UUID tracking.
+.SH FILES
+.TP
+.I /etc/polycall/config.polycall
+System-wide configuration.
+.TP
+.I .polycallrc
+Per-project binding configuration.
+.SH SEE ALSO
+.BR polycall (1),
+.BR polycalld (8)
+.SH AUTHOR
+OBINexus Computing \- Nambdi Obi-Pala

@@ -1,0 +1,6 @@
+[mesh]
+primary=us
+replica_1=uk
+replica_2=france
+zero_trust=true
+edge_cache=true

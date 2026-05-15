@@ -1,0 +1,305 @@
+/**
+ * TEMPLATE: polycall.c - Example C Source File with DLL Exports
+ *
+ * This is a TEMPLATE showing how to properly structure a C source file
+ * with DLL export macros for cross-platform compilation.
+ *
+ * Copy this pattern to all your .c files in the src/ directory.
+ */
+
+/* ================================================================
+   INCLUDES
+   ================================================================ */
+
+/* IMPORTANT: Include polycall_export.h FIRST */
+#include "polycall_export.h"
+
+/* Then include your public headers */
+#include "polycall.h"
+
+/* System headers */
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+
+/* ================================================================
+   PRIVATE TYPES & STRUCTURES (Not exported)
+   ================================================================ */
+
+/**
+ * Internal state structure
+ * POLYCALL_LOCAL makes this hidden from DLL exports
+ */
+POLYCALL_LOCAL typedef struct {
+    int initialized;
+    size_t memory_allocated;
+    char* error_message;
+} polycall_internal_state_t;
+
+/**
+ * Implementation of polycall_context (forward declaration in header)
+ */
+struct polycall_context {
+    polycall_config_t config;
+    polycall_internal_state_t internal_state;
+    void* state_machine;
+    void* protocol_handler;
+};
+
+/* ================================================================
+   PRIVATE DATA (Not exported to DLL)
+   ================================================================ */
+
+/**
+ * Global internal state - hidden from DLL
+ * POLYCALL_LOCAL keyword hides this symbol
+ */
+POLYCALL_LOCAL static polycall_internal_state_t g_internal_state = {
+    .initialized = 0,
+    .memory_allocated = 0,
+    .error_message = NULL
+};
+
+/**
+ * Version string - could be exported if needed
+ */
+POLYCALL_LOCAL static const char* g_version_string = POLYCALL_VERSION;
+
+/* ================================================================
+   PRIVATE HELPER FUNCTIONS (Not exported to DLL)
+   ================================================================ */
+
+/**
+ * Internal memory allocation with tracking
+ *
+ * POLYCALL_LOCAL makes this function hidden from DLL
+ * This function is ONLY used internally by this module
+ */
+POLYCALL_LOCAL void* polycall_alloc_internal(size_t size)
+{
+    void* ptr = malloc(size);
+    if (ptr) {
+        g_internal_state.memory_allocated += size;
+    }
+    return ptr;
+}
+
+/**
+ * Internal memory deallocation with tracking
+ *
+ * POLYCALL_LOCAL makes this function hidden from DLL
+ */
+POLYCALL_LOCAL void polycall_free_internal(void* ptr, size_t size)
+{
+    if (ptr) {
+        free(ptr);
+        if (g_internal_state.memory_allocated >= size) {
+            g_internal_state.memory_allocated -= size;
+        }
+    }
+}
+
+/**
+ * Internal error setter
+ *
+ * POLYCALL_LOCAL makes this function hidden from DLL
+ */
+POLYCALL_LOCAL void polycall_set_error_internal(const char* error)
+{
+    if (g_internal_state.error_message) {
+        free(g_internal_state.error_message);
+    }
+
+    if (error) {
+        size_t len = strlen(error);
+        g_internal_state.error_message = (char*)malloc(len + 1);
+        if (g_internal_state.error_message) {
+            strcpy(g_internal_state.error_message, error);
+        }
+    } else {
+        g_internal_state.error_message = NULL;
+    }
+}
+
+/**
+ * Internal state machine initialization
+ *
+ * POLYCALL_LOCAL makes this function hidden from DLL
+ */
+POLYCALL_LOCAL polycall_status_t polycall_init_state_machine_internal(
+    polycall_context_t ctx)
+{
+    if (!ctx) {
+        polycall_set_error_internal("Invalid context");
+        return POLYCALL_ERROR_INVALID_PARAMETERS;
+    }
+
+    /* Initialize state machine */
+    ctx->state_machine = malloc(sizeof(void*));
+    if (!ctx->state_machine) {
+        polycall_set_error_internal("Failed to allocate state machine");
+        return POLYCALL_ERROR_OUT_OF_MEMORY;
+    }
+
+    return POLYCALL_SUCCESS;
+}
+
+/* ================================================================
+   PUBLIC API FUNCTIONS (Exported to DLL/shared library)
+   ================================================================ */
+
+/**
+ * Initialize the PolyCall library with configuration
+ *
+ * POLYCALL_EXPORT makes this visible in DLL
+ * POLYCALL_CALL specifies calling convention (Windows-specific)
+ *
+ * This function:
+ * 1. Allocates context structure
+ * 2. Initializes internal state
+ * 3. Sets up state machine
+ * 4. Returns status code
+ */
+POLYCALL_EXPORT polycall_status_t POLYCALL_CALL polycall_init_with_config(
+    polycall_context_t* ctx,
+    const polycall_config_t* config)
+{
+    /* Validate parameters */
+    if (!ctx || !config) {
+        polycall_set_error_internal("NULL parameters");
+        return POLYCALL_ERROR_INVALID_PARAMETERS;
+    }
+
+    /* Allocate context using internal allocator */
+    polycall_context_t context = (polycall_context_t)polycall_alloc_internal(
+        sizeof(struct polycall_context)
+    );
+
+    if (!context) {
+        polycall_set_error_internal("Memory allocation failed");
+        return POLYCALL_ERROR_OUT_OF_MEMORY;
+    }
+
+    /* Copy configuration */
+    memcpy(&context->config, config, sizeof(polycall_config_t));
+
+    /* Initialize state machine (internal) */
+    polycall_status_t status = polycall_init_state_machine_internal(context);
+    if (status != POLYCALL_SUCCESS) {
+        polycall_free_internal(context, sizeof(struct polycall_context));
+        return status;
+    }
+
+    /* Mark as initialized */
+    g_internal_state.initialized = 1;
+
+    /* Return context to caller */
+    *ctx = context;
+
+    return POLYCALL_SUCCESS;
+}
+
+/**
+ * Clean up and release resources
+ *
+ * POLYCALL_EXPORT makes this visible in DLL
+ * POLYCALL_CALL specifies calling convention
+ */
+POLYCALL_EXPORT void POLYCALL_CALL polycall_cleanup(polycall_context_t ctx)
+{
+    if (!ctx) {
+        return;
+    }
+
+    /* Clean up internal state (use internal function) */
+    if (ctx->state_machine) {
+        free(ctx->state_machine);
+        ctx->state_machine = NULL;
+    }
+
+    if (ctx->protocol_handler) {
+        free(ctx->protocol_handler);
+        ctx->protocol_handler = NULL;
+    }
+
+    /* Free context */
+    polycall_free_internal(ctx, sizeof(struct polycall_context));
+
+    /* Mark as not initialized */
+    g_internal_state.initialized = 0;
+}
+
+/**
+ * Get the PolyCall library version
+ *
+ * POLYCALL_EXPORT makes this visible in DLL
+ * POLYCALL_CALL specifies calling convention
+ */
+POLYCALL_EXPORT const char* POLYCALL_CALL polycall_get_version(void)
+{
+    return g_version_string;
+}
+
+/**
+ * Get the last error message
+ *
+ * POLYCALL_EXPORT makes this visible in DLL
+ * POLYCALL_CALL specifies calling convention
+ */
+POLYCALL_EXPORT const char* POLYCALL_CALL polycall_get_last_error(
+    polycall_context_t ctx)
+{
+    /* Could check context, but error is global */
+    (void)ctx;  /* Suppress unused parameter warning */
+
+    if (g_internal_state.error_message) {
+        return g_internal_state.error_message;
+    }
+
+    return "No error";
+}
+
+/* ================================================================
+   END OF FILE
+   ================================================================ */
+
+/*
+SUMMARY OF MACROS USED IN THIS FILE:
+
+1. POLYCALL_EXPORT
+   - Used for PUBLIC functions that go into DLL/shared library
+   - Examples: polycall_init_with_config(), polycall_cleanup()
+   - Windows: __declspec(dllexport) when building DLL
+   - Unix/Linux: __attribute__((visibility("default")))
+
+2. POLYCALL_LOCAL
+   - Used for PRIVATE functions hidden from DLL/shared library
+   - Examples: polycall_alloc_internal(), polycall_init_state_machine_internal()
+   - Windows: (no prefix, default hidden)
+   - Unix/Linux: __attribute__((visibility("hidden")))
+
+3. POLYCALL_CALL
+   - Used to specify calling convention
+   - Only needed on Windows for C interop
+   - On Unix/Linux it's empty (not needed)
+   - Applied to both function declarations and definitions
+
+4. POLYCALL_C_BEGIN / POLYCALL_C_END
+   - Use in HEADERS (not source files)
+   - Wraps extern "C" for C++ compatibility
+   - See polycall.h for example
+
+PATTERN TO FOLLOW:
+
+// In your .c files:
+#include "polycall_export.h"  // FIRST
+#include "your_header.h"      // Then headers
+
+// Private functions
+POLYCALL_LOCAL void private_function(void) { }
+POLYCALL_LOCAL static int private_data = 0;
+
+// Public functions
+POLYCALL_EXPORT int POLYCALL_CALL public_function(void) { }
+POLYCALL_EXPORT int public_data = 0;
+*/

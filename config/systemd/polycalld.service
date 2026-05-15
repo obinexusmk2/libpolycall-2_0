@@ -1,0 +1,53 @@
+[Unit]
+Description=LibPolycall V2 Protocol Daemon
+Documentation=man:polycalld(8)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=forking
+PIDFile=/var/run/polycall/polycalld.pid
+
+ExecStartPre=/usr/local/bin/polycall --validate-config /etc/polycall/config.polycall
+ExecStart=/usr/local/sbin/polycalld \
+    --config /etc/polycall/config.polycall \
+    --pidfile /var/run/polycall/polycalld.pid \
+    --socket /var/run/polycall/polycalld.sock \
+    --logfile /var/log/polycall/polycalld.log
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStop=/bin/kill -TERM $MAINPID
+
+User=polycall
+Group=polycall
+
+RuntimeDirectory=polycall
+RuntimeDirectoryMode=0755
+LogsDirectory=polycall
+StateDirectory=polycall
+
+# Security hardening (zero-trust at service level)
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+ReadWritePaths=/var/run/polycall /var/log/polycall /var/lib/polycall
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictNamespaces=yes
+RestrictSUIDSGID=yes
+MemoryDenyWriteExecute=yes
+LockPersonality=yes
+SystemCallFilter=@system-service
+SystemCallArchitectures=native
+
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=polycalld
+
+[Install]
+WantedBy=multi-user.target

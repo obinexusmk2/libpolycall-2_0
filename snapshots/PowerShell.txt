@@ -1,0 +1,91 @@
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> .\build-windows.ps1 -Target debug
+LibPolyCall Windows Build System
+=================================
+Cleaning build artifacts...
+✓ Build directory removed
+Compiling for Windows (debug)...
+  Compiling: network.c
+  Compiling: polycall_micro.c
+  Compiling: polycall_parser.c
+  Compiling: polycall_protocol.c
+  Compiling: polycall_state_machine.c
+  Compiling: polycall_token.c
+  Compiling: polycall_tokenizer.c
+✗ C:\Users\OBINexus\libpolycall-v1\libpolycall-v1\src\polycall_tokenizer.c:21:47: error: variable 'POLYCALL_TOKENIZER_DEFAULT_CONFIG' definition is marked dllimport
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> .\build-windows.ps1 -Target debug
+LibPolyCall Windows Build System
+=================================
+Cleaning build artifacts...
+✓ Build directory removed
+Compiling for Windows (debug)...
+  Compiling: network.c
+  Compiling: polycall_micro.c
+  Compiling: polycall_parser.c
+  Compiling: polycall_protocol.c
+  Compiling: polycall_state_machine.c
+  Compiling: polycall_token.c
+  Compiling: polycall_tokenizer.c
+✗ C:\Users\OBINexus\libpolycall-v1\libpolycall-v1\src\polycall_tokenizer.c:21:47: error: variable 'POLYCALL_TOKENIZER_DEFAULT_CONFIG' definition is marked dllimport
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> .\build-windows.ps1 -Target release
+LibPolyCall Windows Build System
+=================================
+Cleaning build artifacts...
+✓ Build directory removed
+Compiling for Windows (release)...
+  Compiling: network.c
+  Compiling: polycall_micro.c
+  Compiling: polycall_parser.c
+  Compiling: polycall_protocol.c
+  Compiling: polycall_state_machine.c
+  Compiling: polycall_token.c
+  Compiling: polycall_tokenizer.c
+✗ C:\Users\OBINexus\libpolycall-v1\libpolycall-v1\src\polycall_tokenizer.c:21:47: error: variable 'POLYCALL_TOKENIZER_DEFAULT_CONFIG' definition is marked dllimport
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> make clean
+process_begin: CreateProcess(NULL, uname -s, ...) failed.
+-e "\033[33mCleaning build artifacts...\033[0m"
+The system cannot find the path specified.
+'true' is not recognized as an internal or external command,
+operable program or batch file.
+Makefile:251: recipe for target 'clean' failed
+make: *** [clean] Error 1
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> make release
+process_begin: CreateProcess(NULL, uname -s, ...) failed.
+-e "\033[33mCleaning build artifacts...\033[0m"
+The system cannot find the path specified.
+'true' is not recognized as an internal or external command,
+operable program or batch file.
+Makefile:251: recipe for target 'clean' failed
+make: *** [clean] Error 1
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> make static
+process_begin: CreateProcess(NULL, uname -s, ...) failed.
+-e "\033[94m  Compiling:\033[0m src/polycall_tokenizer.c"
+'cc' is not recognized as an internal or external command,
+operable program or batch file.
+-e "\033[91mÔ£ù Compilation failed: src/polycall_tokenizer.c\033[0m"
+Makefile:209: recipe for target 'build/obj/polycall_tokenizer.o' failed
+make: *** [build/obj/polycall_tokenizer.o] Error 1
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> make help
+process_begin: CreateProcess(NULL, uname -s, ...) failed.
+-e "\033[94mLibPolyCall Library - Build Targets\033[0m"
+-e "\033[94m=====================================\033[0m"
+-e ""
+-e "  \033[92mmake [all]\033[0m        Build default (debug shared library)"
+-e "  \033[92mmake debug\033[0m        Build debug version with symbols"
+-e "  \033[92mmake release\033[0m      Build optimized release version"
+-e "  \033[92mmake static\033[0m       Build static library (.a / .lib)"
+-e "  \033[92mmake shared\033[0m       Build shared library (.so / .dylib / .dll)"
+-e "  \033[92mmake dll\033[0m          Build Windows DLL explicitly"
+-e ""
+-e "  \033[33mmake install\033[0m      Install library (Unix/Linux only)"
+-e "  \033[93mmake clean\033[0m        Remove build artifacts"
+-e "  \033[91mmake distclean\033[0m    Remove all generated files"
+-e ""
+-e "  \033[94mmake info\033[0m         Show build configuration"
+-e "  \033[94mmake help\033[0m         This help message"
+-e ""
+-e "\033[33mExamples:\033[0m"
+-e "  $ make                  # Build default (shared, debug)"
+-e "  $ make release static   # Build static release library"
+-e "  $ make dll              # Build Windows DLL"
+-e "  $ make install          # Install on Unix/Linux"
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1>

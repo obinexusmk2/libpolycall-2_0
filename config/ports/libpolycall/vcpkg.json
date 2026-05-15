@@ -1,0 +1,35 @@
+{
+  "name": "libpolycall",
+  "version": "1.1.0",
+  "description": "Polymorphic cross-language RPC protocol with zero-trust architecture",
+  "license": "MIT",
+  "dependencies": [
+    "openssl",
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    },
+    {
+      "name": "pthreads",
+      "platform": "!windows"
+    }
+  ],
+  "features": {
+    "shared": {
+      "description": "Build shared library"
+    },
+    "static": {
+      "description": "Build static library"
+    },
+    "tools": {
+      "description": "Build polycall executable"
+    },
+    "tests": {
+      "description": "Build test suite"
+    }
+  }
+}

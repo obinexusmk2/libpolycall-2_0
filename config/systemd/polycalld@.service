@@ -1,0 +1,34 @@
+[Unit]
+Description=LibPolycall V2 Protocol Daemon (instance %i)
+Documentation=man:polycalld(8)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=forking
+PIDFile=/var/run/polycall/polycalld-%i.pid
+
+ExecStart=/usr/local/sbin/polycalld \
+    --config /etc/polycall/%i.polycall \
+    --pidfile /var/run/polycall/polycalld-%i.pid \
+    --socket /var/run/polycall/polycalld-%i.sock \
+    --logfile /var/log/polycall/polycalld-%i.log
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStop=/bin/kill -TERM $MAINPID
+
+User=polycall
+Group=polycall
+
+RuntimeDirectory=polycall
+LogsDirectory=polycall
+StateDirectory=polycall
+
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

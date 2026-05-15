@@ -1,0 +1,68 @@
+.TH POLYCALLD 8 "2026-02-14" "LibPolycall 2.0.0" "System Administration"
+.SH NAME
+polycalld \- LibPolycall V2 protocol daemon
+.SH SYNOPSIS
+.B polycalld
+[\fIOPTION\fR]...
+.SH DESCRIPTION
+.B polycalld
+is the daemon process for the LibPolycall V2 polymorphic core library.
+It listens on a Unix domain socket and serves protocol requests from
+language bindings, acting as a proxy and reverse proxy with zero-trust
+security enforcement.
+.PP
+The daemon is designed to run behind nginx (or other reverse proxies)
+and communicates via Unix sockets to minimize attack surface.
+.SH OPTIONS
+.TP
+.B \-c, \-\-config \fI<path>\fR
+Path to configuration file. Default: /etc/polycall/config.polycall
+.TP
+.B \-p, \-\-pidfile \fI<path>\fR
+Path to PID file. Default: /var/run/polycall/polycalld.pid
+.TP
+.B \-s, \-\-socket \fI<path>\fR
+Path to Unix domain socket. Default: /var/run/polycall/polycalld.sock
+.TP
+.B \-l, \-\-logfile \fI<path>\fR
+Path to log file. Default: /var/log/polycall/polycalld.log
+.TP
+.B \-f, \-\-foreground
+Run in foreground (do not daemonize). Useful for debugging and
+container deployments.
+.TP
+.B \-v, \-\-verbose
+Enable verbose output.
+.TP
+.B \-V, \-\-version
+Print version and exit.
+.TP
+.B \-h, \-\-help
+Show help message.
+.SH SIGNALS
+.TP
+.B SIGHUP
+Reload configuration file without restarting.
+.TP
+.B SIGTERM
+Graceful shutdown.
+.SH FILES
+.TP
+.I /etc/polycall/config.polycall
+Main configuration file.
+.TP
+.I /var/run/polycall/polycalld.pid
+Process ID file.
+.TP
+.I /var/run/polycall/polycalld.sock
+Unix domain socket for client connections.
+.TP
+.I /var/log/polycall/polycalld.log
+Daemon log file.
+.SH SEE ALSO
+.BR polycall (1),
+.BR config.polycall (5),
+.BR nginx (8),
+.BR systemctl (1)
+.SH AUTHOR
+OBINexus Computing \- Nambdi Obi-Pala

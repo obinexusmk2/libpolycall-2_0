@@ -1,0 +1,398 @@
+# Polycallfile (TOML Format)
+# ===========================
+# LibPolyCall Master Configuration
+# Developer-friendly alternative to XML
+#
+# Usage: polycall -f Polycallfile.toml
+#        polycall convert Polycallfile.toml -o Polycallfile.xml
+#
+# NOTE: This TOML file is converted to Polycallfile.xml at runtime
+
+[metadata]
+name = "Production Banking System - COBOL Bridge"
+version = "2.0.0"
+description = "Wire-transfer system bridging legacy COBOL mainframe to modern REST API"
+organization = "OBINexusComputing"
+author = "Nnamdi Michael Okpala"
+contact = "nnamdi@obinexuscomputing.com"
+
+[metadata.compliance]
+standards = ["PCI-DSS", "SOC2-Type2"]
+certifications = ["HIPAA"]
+
+[metadata.scm]
+type = "git"
+repository = "https://github.com/obinexus/libpolycall-cobol-bridge"
+branch = "main"
+commit = "abc1234def567890"
+
+[metadata.build]
+date = "2026-03-07T14:30:00Z"
+environment = "production"
+polycall_version = "2.0.0"
+
+# =================================================================
+# PLATFORMS: Target runtime environments
+# =================================================================
+
+[platforms."nodejs-18"]
+name = "Node.js 18.x LTS"
+description = "Node.js runtime for REST API endpoints and business logic"
+type = "nodejs"
+version = "18.16.0"
+arch = "x86_64"
+os = "linux"
+capabilities = ["async-await", "native-modules", "ffi-support", "http-server"]
+memory_limit = "512M"
+cpu_limit = 2
+timeout = "30s"
+
+[platforms."python-311"]
+name = "Python 3.11"
+description = "Python for ETL and data transformation pipelines"
+type = "python"
+version = "3.11.0"
+arch = "x86_64"
+os = "linux"
+capabilities = ["async-io", "ctypes-ffi", "pandas"]
+memory_limit = "1G"
+cpu_limit = 4
+timeout = "60s"
+
+[platforms."go-1.21"]
+name = "Go 1.21"
+description = "Go for system services and daemon processes"
+type = "go"
+version = "1.21.0"
+arch = "x86_64"
+os = "linux"
+capabilities = ["goroutines", "cgo", "performance"]
+
+[platforms."java-21"]
+name = "Java 21 JDK"
+description = "Java for enterprise integrations"
+type = "java"
+version = "21.0.0"
+vendor = "OpenJDK"
+arch = "x86_64"
+os = "linux"
+capabilities = ["jni", "reflection", "spring-framework"]
+
+[platforms."cobol-mf"]
+name = "Micro Focus COBOL"
+description = "Mainframe COBOL with USS interface for IPC"
+type = "cobol"
+variant = "micro-focus"
+version = "8.0"
+transport = "unix-socket"
+capabilities = ["vsam-files", "cics-integration", "jcl-submission", "batch-processing"]
+
+# =================================================================
+# BINDINGS: Language adapters
+# =================================================================
+
+[bindings."node-polycall"]
+name = "Node.js Polycall Adapter"
+description = "Node.js adapter for REST API endpoints"
+target_platform = "nodejs-18"
+registry_type = "npm"
+registry_package = "@obinexuscomputing/node-polycall"
+registry_url = "https://registry.npmjs.org"
+
+[bindings."node-polycall".ffi]
+type = "native"
+library = "libpolycall.so"
+library_paths = [
+    "/usr/local/lib/polycall",
+    "/opt/polycall/lib",
+    "./node_modules/@polycall/native"
+]
+
+[bindings."node-polycall".server]
+port = 8080
+bind = "127.0.0.1"
+protocol = "http"
+max_clients = 128
+timeout = 30
+
+[bindings."node-polycall".dependencies]
+koffi = ">=2.10.0"
+express = ">=4.18.0"
+libpolycall = ">=2.0.0"
+
+[bindings."node-polycall".health_check]
+endpoint = "http://127.0.0.1:8080/health"
+interval = "10s"
+timeout = "5s"
+
+[bindings."python-polycall"]
+name = "Python Polycall Adapter"
+description = "Python adapter for ETL and data transformation"
+target_platform = "python-311"
+registry_type = "pypi"
+registry_package = "pypolycall"
+registry_url = "https://pypi.org"
+
+[bindings."python-polycall".ffi]
+type = "native"
+library = "libpolycall.so"
+library_paths = ["/usr/local/lib/polycall", "/opt/polycall/lib"]
+
+[bindings."python-polycall".server]
+port = 3001
+bind = "127.0.0.1"
+protocol = "http"
+max_clients = 64
+timeout = 60
+
+[bindings."python-polycall".dependencies]
+cffi = ">=1.15.0"
+pandas = ">=1.5.0"
+libpolycall = ">=2.0.0"
+
+[bindings."go-polycall"]
+name = "Go Polycall Adapter"
+description = "Pure Go implementation with cgo FFI bridge"
+target_platform = "go-1.21"
+registry_type = "go-module"
+registry_module = "github.com/obinexus/go-polycall"
+registry_url = "https://go.pkg.dev"
+
+[bindings."go-polycall".ffi]
+type = "cgo"
+library = "libpolycall.so"
+
+[bindings."go-polycall".server]
+port = 9084
+bind = "127.0.0.1"
+protocol = "http"
+max_clients = 256
+
+[bindings."java-polycall"]
+name = "Java Polycall Adapter"
+description = "Java/JVM adapter with JNI FFI bridge"
+target_platform = "java-21"
+registry_type = "maven"
+registry_group_id = "com.obinexus"
+registry_artifact_id = "polycall-java"
+registry_url = "https://central.sonatype.com"
+
+[bindings."java-polycall".ffi]
+type = "jni"
+library = "libjpolycall.so"
+
+[bindings."java-polycall".server]
+port = 7084
+bind = "127.0.0.1"
+protocol = "http"
+max_clients = 64
+
+[bindings."cobol-polycall"]
+name = "COBOL PolyCall Bridge"
+description = "Legacy COBOL mainframe integration via Unix daemon socket"
+target_platform = "cobol-mf"
+
+[bindings."cobol-polycall".ffi]
+type = "unix-socket"
+socket_path = "/var/run/polycall/cobol.sock"
+protocol_version = "2.0"
+
+[bindings."cobol-polycall".server]
+type = "daemon"
+pid_file = "/var/run/polycall-cobol.pid"
+socket = "unix:///var/run/polycall/cobol.sock"
+
+# =================================================================
+# DRIVERS: System integrations
+# =================================================================
+
+[drivers.postgres]
+name = "PostgreSQL Driver"
+description = "Native PostgreSQL adapter with connection pooling"
+host = "localhost"
+port = 5432
+database = "banking_prod"
+pool_size = 20
+username = "polycall_user"
+password_vault = "hashicorp-vault://secret/postgres/polycall-password"
+
+[drivers.redis]
+name = "Redis Cache Driver"
+host = "localhost"
+port = 6379
+db = 0
+features = ["session-store", "rate-limiting", "pub-sub", "distributed-lock"]
+
+[drivers.rabbitmq]
+name = "RabbitMQ Driver"
+host = "localhost"
+port = 5672
+vhost = "/"
+
+[[drivers.rabbitmq.exchanges]]
+name = "polycall.events"
+type = "topic"
+
+[[drivers.rabbitmq.exchanges]]
+name = "polycall.commands"
+type = "direct"
+
+[drivers.kafka]
+name = "Apache Kafka Driver"
+bootstrap_servers = ["localhost:9092"]
+
+[[drivers.kafka.topics]]
+name = "polycall-commands"
+partitions = 8
+
+[[drivers.kafka.topics]]
+name = "polycall-events"
+partitions = 16
+
+[[drivers.kafka.topics]]
+name = "polycall-transactions"
+partitions = 12
+
+# =================================================================
+# SECURITY: Zero-trust policy
+# =================================================================
+
+[security]
+mode = "zero-trust"
+description = "All requests require cryptographic validation"
+
+[security.tls]
+enabled = true
+version = "1.3"
+cert_file = "/etc/polycall/certs/server.crt"
+key_file = "/etc/polycall/certs/server.key"
+ca_file = "/etc/polycall/certs/ca.crt"
+require_client_cert = true
+
+[security.auth]
+method = "mTLS"
+fallback_method = "api-key"
+api_key_vault = "hashicorp-vault://secret/polycall/api-keys"
+
+[security.crypto]
+signature_algorithm = "HMAC-SHA256"
+key_derivation = "PBKDF2"
+nonce_generation = "cryptographically-secure"
+
+[security.rbac.roles.admin]
+permissions = ["binding:*", "driver:*", "security:*", "operation:*"]
+
+[security.rbac.roles.developer]
+permissions = ["binding:read", "operation:execute", "logs:read"]
+
+[security.rbac.roles.service]
+permissions = ["operation:execute", "driver:read"]
+
+# =================================================================
+# NETWORK: Transport and routing
+# =================================================================
+
+[network.server]
+bind = "0.0.0.0"
+port = 8084
+protocol = "http"
+enable_ipv6 = true
+
+[network.timeouts]
+connect = "5s"
+read = "30s"
+write = "30s"
+idle = "60s"
+
+[network.limits]
+max_connections = 1000
+max_request_size = "10M"
+max_response_size = "50M"
+
+[[network.routes]]
+path = "/api/*"
+binding = "node-polycall"
+
+[[network.routes]]
+path = "/admin/*"
+binding = "python-polycall"
+
+[[network.routes]]
+path = "/compute/*"
+binding = "go-polycall"
+
+[[network.routes]]
+path = "/legacy/*"
+binding = "cobol-polycall"
+
+# =================================================================
+# TELEMETRY: Observability
+# =================================================================
+
+[telemetry]
+enabled = true
+
+[telemetry.tracing]
+enabled = true
+sampler = "always"
+exporter = "jaeger"
+jaeger_endpoint = "http://localhost:6831"
+
+[telemetry.metrics]
+enabled = true
+interval = "10s"
+exporter = "prometheus"
+prometheus_port = 9090
+prometheus_path = "/metrics"
+
+[telemetry.guid]
+algorithm = "SHA256"
+format = "rfc4122-v5"
+namespace = "uuid:6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+
+[telemetry.logging]
+level = "info"
+format = "json"
+log_file = "/var/log/polycall/polycall.log"
+stdout = true
+
+# =================================================================
+# EXTENSIONS: Built-in feature modules
+# =================================================================
+
+[extensions.jwt-auth]
+enabled = true
+name = "JWT Authentication"
+type = "authentication"
+source = "https://github.com/obinexus/polycall-jwt-ext"
+version = "1.0.0"
+secret_key = "${JWT_SECRET}"
+algorithm = "HS256"
+expiration = 3600
+
+[extensions.rate-limit]
+enabled = true
+name = "Rate Limiting"
+type = "middleware"
+requests_per_second = 100
+burst_size = 200
+
+[extensions.request-logging]
+enabled = true
+name = "Request Logging"
+type = "middleware"
+log_level = "info"
+include_headers = true
+include_body = true
+
+# =================================================================
+# PLUGINS: Third-party domain-specific modules
+# =================================================================
+
+[[plugins]]
+id = "banking-kyc"
+enabled = true
+name = "KYC/AML Banking Plugin"
+source = "plugin-marketplace://obinexus/banking-kyc:1.0.0"
+sandbox = true
+permissions = ["database:read", "database:write", "external-api:call"]

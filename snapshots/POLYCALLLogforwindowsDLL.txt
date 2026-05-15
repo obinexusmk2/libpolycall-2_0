@@ -1,0 +1,195 @@
+(base) PS C:\Users\OBINexus\libpolycall-v1> ls
+
+    Directory: C:\Users\OBINexus\libpolycall-v1
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          07/03/2026    14:13                @bindings
+d----          07/03/2026    13:41                @drivers
+d----          07/03/2026    14:18                @extensions
+d----          07/03/2026    14:17                @plugins
+d----          07/03/2026    14:20                config
+d----          07/03/2026    14:02                daemon
+d----          07/03/2026    14:09                docs
+d----          07/03/2026    14:45                examples
+d----          07/03/2026    14:34                libpolycall-v1
+d----          07/03/2026    13:33                projects
+d----          07/03/2026    14:50                schema
+d----          07/03/2026    13:43                scripts
+d----          07/03/2026    13:41                sdk
+d----          07/03/2026    14:35                snapshots
+-a---          07/03/2026    14:27          26444 ARCHITECTURE_REVIEW.md
+-a---          07/03/2026    13:43           1607 docker-compose.yml
+-a---          07/03/2026    13:43           2405 Dockerfile
+-a---          07/03/2026    13:59         140670 favicon.png
+-a---          07/03/2026    14:47          11491 FILES_DELIVERED.md
+-a---          07/03/2026    14:28          15562 IMPLEMENTATION_CHECKLIST.md
+-a---          07/03/2026    13:43           1089 LICENSE
+-a---          07/03/2026    13:43           5884 LICENSE.md
+-a---          07/03/2026    14:46          14356 POLYCALLFILE_IMPLEMENTATION_SUMMARY.md
+-a---          07/03/2026    14:46          12560 POLYCALLFILE_QUICKSTART.md
+-a---          07/03/2026    14:44          32318 POLYCALLFILE_SPECIFICATION.md
+-a---          07/03/2026    14:45          10258 Polycallfile.toml
+
+(base) PS C:\Users\OBINexus\libpolycall-v1> git add .
+warning: in the working copy of 'libpolycall-v1/Makefile', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'libpolycall-v1/src/polycall_token.c', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'DLL_EXPORT_FILES_CREATED.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'DLL_EXPORT_SUMMARY.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'FILES_DELIVERED.md', LF will be replaced by CRLF the next time Git touches it
+(base) PS C:\Users\OBINexus\libpolycall-v1> git commit -m" ✓ All 8 source files compiled without errors
+>> ✓ Shared library created: lib/libpolycall.so (158 KB)
+>> ✓ Zero warnings with -Wall -Wextra -Werror -std=c99 -pedantic
+>> ✓ Build successful in 2.3 seconds"
+[master d775c65]  ✓ All 8 source files compiled without errors ✓ Shared library created: lib/libpolycall.so (158 KB) ✓ Zero warnings with -Wall -Wextra -Werror -std=c99 -pedantic✓ Build successful in 2.3 seconds
+ 37 files changed, 6053 insertions(+), 197 deletions(-)
+ create mode 100644 DLL_EXPORT_FILES_CREATED.txt
+ create mode 100644 DLL_EXPORT_FINAL_CHECKLIST.md
+ create mode 100644 DLL_EXPORT_GUIDE.md
+ create mode 100644 DLL_EXPORT_SUMMARY.md
+ create mode 100644 FILES_DELIVERED.md
+ create mode 100644 POLYCALLFILE_IMPLEMENTATION_SUMMARY.md
+ create mode 100644 POLYCALLFILE_QUICKSTART.md
+ create mode 100644 Polycallfile.toml
+ rename {@config => config}/.gitkeep (100%)
+ rename {@config => config}/.polycallrc (100%)
+ rename {@config => config}/cmake/feature-template.cmake (100%)
+ rename {@config => config}/cmake/polycall-config.cmake.in (100%)
+ rename {@config => config}/cmake/polycall.pc.in (100%)
+ rename {@config => config}/cmake/process-modules.cmake (100%)
+ rename {@config => config}/config.polycall (100%)
+ rename {@config => config}/nginx/polycall-upstream.conf (100%)
+ rename {@config => config}/nginx/polycall.conf (100%)
+ rename {@config => config}/node.polycallrc (100%)
+ rename {@config => config}/ports/libpolycall/libpolycall-config.cmake.in (100%)
+ rename {@config => config}/ports/libpolycall/portfile.cmake (100%)
+ rename {@config => config}/ports/libpolycall/usage (100%)
+ rename {@config => config}/ports/libpolycall/vcpkg.json (100%)
+ rename {@config => config}/systemd/polycalld.service (100%)
+ rename {@config => config}/systemd/polycalld@.service (100%)
+ create mode 100644 examples/Polycallfile.toml
+ create mode 100644 examples/Polycallfile.xml
+ create mode 100644 libpolycall-v1/include/polycall_export.h
+ create mode 100644 libpolycall-v1/src/TEMPLATE_polycall.c.example
+ create mode 100644 schema/Polycallfile.xsd
+(base) PS C:\Users\OBINexus\libpolycall-v1> git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to '\\wsl.localhost\Debian\home\obinexus\projects\libpolycall-v1'
+(base) PS C:\Users\OBINexus\libpolycall-v1> git remote remove origin
+(base) PS C:\Users\OBINexus\libpolycall-v1> cd .\libpolycall-v1\
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> make
+process_begin: CreateProcess(NULL, uname -s, ...) failed.
+"LibPolyCall Library - Build Targets"
+"===================================="
+""
+"  make [all]        Build default (debug shared library)"
+"  make debug        Build debug version with symbols"
+"  make release      Build optimized release version"
+"  make static       Build static library (.a / .lib)"
+"  make shared       Build shared library (.so / .dylib / .dll)"
+"  make dll          Build Windows DLL explicitly"
+""
+"  make install      Install library (Unix/Linux only)"
+"  make clean        Remove build artifacts"
+"  make distclean    Remove all generated files"
+""
+"  make info         Show build configuration"
+"  make help         This help message"
+""
+"Examples:"
+"  $ make                  # Build default (shared, debug)"
+"  $ make release static   # Build static release library"
+"  $ make dll              # Build Windows DLL"
+"  $ make install          # Install on Unix/Linux"
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> make all
+process_begin: CreateProcess(NULL, uname -s, ...) failed.
+"Linking shared library: lib/libpolycall"
+process_begin: CreateProcess(NULL, cc -o lib/libpolycall obj/polycall_tokenizer.o obj/network.o obj/polycall_state_machine.o obj/polycall_parser.o obj/polycall_token.o obj/polycall_micro.o obj/polycall.o obj/polycall_protocol.o, ...) failed.
+make (e=2): The system cannot find the file specified.
+Makefile:188: recipe for target 'lib/libpolycall' failed
+make: *** [lib/libpolycall] Error 2
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> make debug
+process_begin: CreateProcess(NULL, uname -s, ...) failed.
+"Cleaning build artifacts..."
+process_begin: CreateProcess(NULL, rm -rf obj lib bin, ...) failed.
+make (e=2): The system cannot find the file specified.
+Makefile:219: recipe for target 'clean' failed
+make: *** [clean] Error 2
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> make release
+process_begin: CreateProcess(NULL, uname -s, ...) failed.
+"Cleaning build artifacts..."
+process_begin: CreateProcess(NULL, rm -rf obj lib bin, ...) failed.
+make (e=2): The system cannot find the file specified.
+Makefile:219: recipe for target 'clean' failed
+make: *** [clean] Error 2
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> make shared
+process_begin: CreateProcess(NULL, uname -s, ...) failed.
+"Linking shared library: lib/libpolycall"
+process_begin: CreateProcess(NULL, cc -o lib/libpolycall obj/polycall_tokenizer.o obj/network.o obj/polycall_state_machine.o obj/polycall_parser.o obj/polycall_token.o obj/polycall_micro.o obj/polycall.o obj/polycall_protocol.o, ...) failed.
+make (e=2): The system cannot find the file specified.
+Makefile:188: recipe for target 'lib/libpolycall' failed
+make: *** [lib/libpolycall] Error 2
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> make ddl
+process_begin: CreateProcess(NULL, uname -s, ...) failed.
+make: *** No rule to make target 'ddl'.  Stop.
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> make dll
+process_begin: CreateProcess(NULL, uname -s, ...) failed.
+make: *** No rule to make target 'lib/polycall.dll', needed by 'dll'.  Stop.
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> make help
+process_begin: CreateProcess(NULL, uname -s, ...) failed.
+"LibPolyCall Library - Build Targets"
+"===================================="
+""
+"  make [all]        Build default (debug shared library)"
+"  make debug        Build debug version with symbols"
+"  make release      Build optimized release version"
+"  make static       Build static library (.a / .lib)"
+"  make shared       Build shared library (.so / .dylib / .dll)"
+"  make dll          Build Windows DLL explicitly"
+""
+"  make install      Install library (Unix/Linux only)"
+"  make clean        Remove build artifacts"
+"  make distclean    Remove all generated files"
+""
+"  make info         Show build configuration"
+"  make help         This help message"
+""
+"Examples:"
+"  $ make                  # Build default (shared, debug)"
+"  $ make release static   # Build static release library"
+"  $ make dll              # Build Windows DLL"
+"  $ make install          # Install on Unix/Linux"
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> make info
+process_begin: CreateProcess(NULL, uname -s, ...) failed.
+"LibPolyCall Build Configuration"
+"================================"
+"Platform:      Unknown"
+"Compiler:      gcc"
+"Build Type:    debug"
+"Library Name:  polycall"
+"Version:       2.0.0"
+""
+"Source Files:  src/polycall_tokenizer.c src/network.c src/polycall_state_machine.c src/polycall_parser.c src/polycall_token.c src/polycall_micro.c src/polycall.c src/polycall_protocol.c"
+"Header Files:  include/polycall_tokenizer.h include/polycall_export.h include/polycall_protocol.h include/network.h include/polycall_state_machine.h include/polycall_parser.h include/polycall_token.h include/polycall_micro.h include/polycall.h include/polycall_file_parser.h"
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> make distclean
+process_begin: CreateProcess(NULL, uname -s, ...) failed.
+"Cleaning build artifacts..."
+process_begin: CreateProcess(NULL, rm -rf obj lib bin, ...) failed.
+make (e=2): The system cannot find the file specified.
+Makefile:219: recipe for target 'clean' failed
+make: *** [clean] Error 2
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> make clean
+process_begin: CreateProcess(NULL, uname -s, ...) failed.
+"Cleaning build artifacts..."
+process_begin: CreateProcess(NULL, rm -rf obj lib bin, ...) failed.
+make (e=2): The system cannot find the file specified.
+Makefile:219: recipe for target 'clean' failed
+make: *** [clean] Error 2
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1> make install
+process_begin: CreateProcess(NULL, uname -s, ...) failed.
+"Linking shared library: lib/libpolycall"
+process_begin: CreateProcess(NULL, cc -o lib/libpolycall obj/polycall_tokenizer.o obj/network.o obj/polycall_state_machine.o obj/polycall_parser.o obj/polycall_token.o obj/polycall_micro.o obj/polycall.o obj/polycall_protocol.o, ...) failed.
+make (e=2): The system cannot find the file specified.
+Makefile:188: recipe for target 'lib/libpolycall' failed
+make: *** [lib/libpolycall] Error 2
+(base) PS C:\Users\OBINexus\libpolycall-v1\libpolycall-v1>

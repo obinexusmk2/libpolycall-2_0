@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  LibPolyCall Polycallfile XML Schema (v2.0)
+  XSD Validation: xmllint --schema schema/Polycallfile.xsd Polycallfile.xml --valid
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://schema.obinexus.io/polycall/2.0"
+           xmlns="https://schema.obinexus.io/polycall/2.0"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+    <!-- ROOT ELEMENT -->
+    <xs:element name="polycallfile">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="metadata" type="MetadataType" minOccurs="1"/>
+                <xs:element name="platforms" type="PlatformsType" minOccurs="0"/>
+                <xs:element name="bindings" type="BindingsType" minOccurs="0"/>
+                <xs:element name="drivers" type="DriversType" minOccurs="0"/>
+                <xs:element name="security" type="SecurityType" minOccurs="0"/>
+                <xs:element name="network" type="NetworkType" minOccurs="0"/>
+                <xs:element name="discovery" type="DiscoveryType" minOccurs="0"/>
+                <xs:element name="telemetry" type="TelemetryType" minOccurs="0"/>
+                <xs:element name="extensions" type="ExtensionsType" minOccurs="0"/>
+                <xs:element name="plugins" type="PluginsType" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="version" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- METADATA -->
+    <xs:complexType name="MetadataType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="version" type="xs:string"/>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="organization" type="xs:string" minOccurs="0"/>
+            <xs:element name="author" type="xs:string" minOccurs="0"/>
+            <xs:element name="contact" type="xs:string" minOccurs="0"/>
+            <xs:element name="compliance" type="ComplianceType" minOccurs="0"/>
+            <xs:element name="scm" type="SCMType" minOccurs="0"/>
+            <xs:element name="build" type="BuildType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ComplianceType">
+        <xs:sequence>
+            <xs:element name="standard" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="certifications" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SCMType">
+        <xs:sequence>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="repository" type="xs:string"/>
+            <xs:element name="branch" type="xs:string" minOccurs="0"/>
+            <xs:element name="commit" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="BuildType">
+        <xs:sequence>
+            <xs:element name="date" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="environment" type="xs:string" minOccurs="0"/>
+            <xs:element name="polycall_version" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- PLATFORMS -->
+    <xs:complexType name="PlatformsType">
+        <xs:sequence>
+            <xs:element name="platform" type="PlatformType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PlatformType">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="runtime" type="RuntimeType"/>
+            <xs:element name="capabilities" type="CapabilitiesType" minOccurs="0"/>
+            <xs:element name="resource-limits" type="ResourceLimitsType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="RuntimeType">
+        <xs:sequence>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="version" type="xs:string"/>
+            <xs:element name="variant" type="xs:string" minOccurs="0"/>
+            <xs:element name="vendor" type="xs:string" minOccurs="0"/>
+            <xs:element name="arch" type="xs:string" minOccurs="0"/>
+            <xs:element name="os" type="xs:string" minOccurs="0"/>
+            <xs:element name="transport" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CapabilitiesType">
+        <xs:sequence>
+            <xs:element name="feature" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ResourceLimitsType">
+        <xs:sequence>
+            <xs:element name="memory" type="xs:string" minOccurs="0"/>
+            <xs:element name="cpu" type="xs:string" minOccurs="0"/>
+            <xs:element name="timeout" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- BINDINGS -->
+    <xs:complexType name="BindingsType">
+        <xs:sequence>
+            <xs:element name="binding" type="BindingType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="BindingType">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="targets" type="TargetsType"/>
+            <xs:element name="ffi" type="FFIType"/>
+            <xs:element name="registry" type="RegistryType" minOccurs="0"/>
+            <xs:element name="server" type="ServerType" minOccurs="0"/>
+            <xs:element name="dependencies" type="DependenciesType" minOccurs="0"/>
+            <xs:element name="health-check" type="HealthCheckType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="TargetsType">
+        <xs:sequence>
+            <xs:element name="platform-ref" type="PlatformRefType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PlatformRefType">
+        <xs:attribute name="ref" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="FFIType">
+        <xs:sequence>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="library" type="xs:string" minOccurs="0"/>
+            <xs:element name="library-paths" type="LibraryPathsType" minOccurs="0"/>
+            <xs:element name="interface" type="InterfaceType" minOccurs="0"/>
+            <xs:element name="socket-path" type="xs:string" minOccurs="0"/>
+            <xs:element name="protocol-version" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LibraryPathsType">
+        <xs:sequence>
+            <xs:element name="path" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="InterfaceType">
+        <xs:sequence>
+            <xs:element name="function" type="FunctionType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="native-method" type="NativeMethodType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="FunctionType">
+        <xs:sequence>
+            <xs:element name="param" type="ParamType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="return" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="ParamType">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="type" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="NativeMethodType">
+        <xs:attribute name="signature" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="RegistryType">
+        <xs:sequence>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="scope" type="xs:string" minOccurs="0"/>
+            <xs:element name="package" type="xs:string" minOccurs="0"/>
+            <xs:element name="group-id" type="xs:string" minOccurs="0"/>
+            <xs:element name="artifact-id" type="xs:string" minOccurs="0"/>
+            <xs:element name="module" type="xs:string" minOccurs="0"/>
+            <xs:element name="registry-url" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ServerType">
+        <xs:sequence>
+            <xs:element name="port" type="xs:int" minOccurs="0"/>
+            <xs:element name="bind" type="xs:string" minOccurs="0"/>
+            <xs:element name="protocol" type="xs:string" minOccurs="0"/>
+            <xs:element name="max_clients" type="xs:int" minOccurs="0"/>
+            <xs:element name="timeout" type="xs:int" minOccurs="0"/>
+            <xs:element name="type" type="xs:string" minOccurs="0"/>
+            <xs:element name="pid-file" type="xs:string" minOccurs="0"/>
+            <xs:element name="socket" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DependenciesType">
+        <xs:sequence>
+            <xs:element name="dependency" type="DependencyType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DependencyType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="version" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="type" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="HealthCheckType">
+        <xs:sequence>
+            <xs:element name="endpoint" type="xs:string"/>
+            <xs:element name="interval" type="xs:string" minOccurs="0"/>
+            <xs:element name="timeout" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- DRIVERS -->
+    <xs:complexType name="DriversType">
+        <xs:sequence>
+            <xs:element name="driver-group" type="DriverGroupType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DriverGroupType">
+        <xs:sequence>
+            <xs:element name="driver" type="DriverType" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="category" type="xs:string" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="DriverType">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="connection" type="ConnectionType" minOccurs="0"/>
+            <xs:element name="security" type="SecurityConfigType" minOccurs="0"/>
+            <xs:element name="features" type="FeaturesType" minOccurs="0"/>
+            <xs:element name="exchanges" type="ExchangesType" minOccurs="0"/>
+            <xs:element name="topics" type="TopicsType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="ConnectionType">
+        <xs:sequence>
+            <xs:element name="host" type="xs:string" minOccurs="0"/>
+            <xs:element name="port" type="xs:int" minOccurs="0"/>
+            <xs:element name="database" type="xs:string" minOccurs="0"/>
+            <xs:element name="db" type="xs:int" minOccurs="0"/>
+            <xs:element name="vhost" type="xs:string" minOccurs="0"/>
+            <xs:element name="pool-size" type="xs:int" minOccurs="0"/>
+            <xs:element name="bootstrap-servers" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SecurityConfigType">
+        <xs:sequence>
+            <xs:element name="user" type="xs:string" minOccurs="0"/>
+            <xs:element name="password-vault" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="FeaturesType">
+        <xs:sequence>
+            <xs:element name="feature" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ExchangesType">
+        <xs:sequence>
+            <xs:element name="exchange" type="ExchangeType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ExchangeType">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="type" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="TopicsType">
+        <xs:sequence>
+            <xs:element name="topic" type="TopicType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TopicType">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="partitions" type="xs:int" use="optional"/>
+    </xs:complexType>
+
+    <!-- SECURITY -->
+    <xs:complexType name="SecurityType">
+        <xs:sequence>
+            <xs:element name="policy" type="SecurityPolicyType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SecurityPolicyType">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="tls" type="TLSType" minOccurs="0"/>
+            <xs:element name="auth" type="AuthType" minOccurs="0"/>
+            <xs:element name="crypto" type="CryptoType" minOccurs="0"/>
+            <xs:element name="rbac" type="RBACType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="mode" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="TLSType">
+        <xs:sequence>
+            <xs:element name="enabled" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="version" type="xs:string" minOccurs="0"/>
+            <xs:element name="cert-file" type="xs:string" minOccurs="0"/>
+            <xs:element name="key-file" type="xs:string" minOccurs="0"/>
+            <xs:element name="ca-file" type="xs:string" minOccurs="0"/>
+            <xs:element name="require-client-cert" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AuthType">
+        <xs:sequence>
+            <xs:element name="method" type="xs:string"/>
+            <xs:element name="fallback-method" type="xs:string" minOccurs="0"/>
+            <xs:element name="api-key-vault" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CryptoType">
+        <xs:sequence>
+            <xs:element name="signature-algorithm" type="xs:string" minOccurs="0"/>
+            <xs:element name="key-derivation" type="xs:string" minOccurs="0"/>
+            <xs:element name="nonce-generation" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="RBACType">
+        <xs:sequence>
+            <xs:element name="role" type="RoleType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="RoleType">
+        <xs:sequence>
+            <xs:element name="permission" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <!-- NETWORK -->
+    <xs:complexType name="NetworkType">
+        <xs:sequence>
+            <xs:element name="server" type="ServerType" minOccurs="0"/>
+            <xs:element name="timeouts" type="TimeoutsType" minOccurs="0"/>
+            <xs:element name="limits" type="LimitsType" minOccurs="0"/>
+            <xs:element name="routing" type="RoutingType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TimeoutsType">
+        <xs:sequence>
+            <xs:element name="connect" type="xs:string" minOccurs="0"/>
+            <xs:element name="read" type="xs:string" minOccurs="0"/>
+            <xs:element name="write" type="xs:string" minOccurs="0"/>
+            <xs:element name="idle" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LimitsType">
+        <xs:sequence>
+            <xs:element name="max-connections" type="xs:int" minOccurs="0"/>
+            <xs:element name="max-request-size" type="xs:string" minOccurs="0"/>
+            <xs:element name="max-response-size" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="RoutingType">
+        <xs:sequence>
+            <xs:element name="route" type="RouteType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="RouteType">
+        <xs:attribute name="path" type="xs:string" use="required"/>
+        <xs:attribute name="binding" type="xs:IDREF" use="optional"/>
+    </xs:complexType>
+
+    <!-- DISCOVERY -->
+    <xs:complexType name="DiscoveryType">
+        <xs:sequence>
+            <xs:element name="enabled" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="type" type="xs:string" minOccurs="0"/>
+            <xs:element name="interval" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- TELEMETRY -->
+    <xs:complexType name="TelemetryType">
+        <xs:sequence>
+            <xs:element name="enabled" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="tracing" type="TracingType" minOccurs="0"/>
+            <xs:element name="metrics" type="MetricsType" minOccurs="0"/>
+            <xs:element name="guid" type="GUIDType" minOccurs="0"/>
+            <xs:element name="logging" type="LoggingType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TracingType">
+        <xs:sequence>
+            <xs:element name="enabled" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="sampler" type="xs:string" minOccurs="0"/>
+            <xs:element name="exporter" type="xs:string" minOccurs="0"/>
+            <xs:element name="jaeger-endpoint" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MetricsType">
+        <xs:sequence>
+            <xs:element name="enabled" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="interval" type="xs:string" minOccurs="0"/>
+            <xs:element name="exporter" type="xs:string" minOccurs="0"/>
+            <xs:element name="prometheus-port" type="xs:int" minOccurs="0"/>
+            <xs:element name="prometheus-path" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GUIDType">
+        <xs:sequence>
+            <xs:element name="algorithm" type="xs:string" minOccurs="0"/>
+            <xs:element name="format" type="xs:string" minOccurs="0"/>
+            <xs:element name="namespace" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LoggingType">
+        <xs:sequence>
+            <xs:element name="level" type="xs:string" minOccurs="0"/>
+            <xs:element name="format" type="xs:string" minOccurs="0"/>
+            <xs:element name="output" type="LogOutputType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LogOutputType">
+        <xs:sequence>
+            <xs:element name="file" type="xs:string" minOccurs="0"/>
+            <xs:element name="stdout" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- EXTENSIONS -->
+    <xs:complexType name="ExtensionsType">
+        <xs:sequence>
+            <xs:element name="extension" type="ExtensionType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ExtensionType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="type" type="xs:string" minOccurs="0"/>
+            <xs:element name="source" type="xs:string" minOccurs="0"/>
+            <xs:element name="version" type="xs:string" minOccurs="0"/>
+            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="enabled" type="xs:boolean" use="optional"/>
+    </xs:complexType>
+
+    <!-- PLUGINS -->
+    <xs:complexType name="PluginsType">
+        <xs:sequence>
+            <xs:element name="plugin" type="PluginType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PluginType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="source" type="xs:string" minOccurs="0"/>
+            <xs:element name="manifest" type="ManifestType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="enabled" type="xs:boolean" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="ManifestType">
+        <xs:sequence>
+            <xs:element name="permissions" type="PermissionsType" minOccurs="0"/>
+            <xs:element name="sandbox" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PermissionsType">
+        <xs:sequence>
+            <xs:element name="permission" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

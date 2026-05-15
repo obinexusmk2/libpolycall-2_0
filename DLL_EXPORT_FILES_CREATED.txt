@@ -1,0 +1,263 @@
+================================================================================
+LibPolyCall-v1 DLL Export Configuration - Complete File Manifest
+================================================================================
+
+Date Created: March 7, 2026
+Status: ✅ COMPLETE - Ready for Implementation
+For: OBINexusComputing (Nnamdi Michael Okpala)
+
+================================================================================
+NEW FILES CREATED
+================================================================================
+
+1. HEADER FILE (Core Export Macros)
+   ✅ libpolycall-v1/include/polycall_export.h
+      - Cross-platform export macro definitions
+      - Windows (MSVC/MinGW) support: __declspec(dllexport/dllimport)
+      - Unix/Linux/macOS (GCC/Clang) support: __attribute__((visibility()))
+      - ~350 lines with comprehensive documentation
+      - Key macros: POLYCALL_EXPORT, POLYCALL_LOCAL, POLYCALL_CALL
+
+2. BUILD SYSTEM (Makefile)
+   ✅ libpolycall-v1/Makefile
+      - Cross-platform compilation support
+      - Auto-detects platform (Windows/Linux/macOS)
+      - Build targets: all, debug, release, static, shared, dll
+      - Automatic symbol visibility configuration
+      - ~250 lines with make targets and documentation
+
+3. DOCUMENTATION FILES
+   ✅ libpolycall-v1/DLL_EXPORT_GUIDE.md
+      - Comprehensive guide for updating C source files
+      - Pattern examples for public/private functions
+      - Windows vs Unix/Linux comparison
+      - Testing and troubleshooting information
+      - ~400 lines
+
+   ✅ libpolycall-v1/DLL_EXPORT_SUMMARY.md
+      - Quick reference and next steps
+      - Architecture overview
+      - File update checklist
+      - Build examples for all platforms
+      - ~350 lines
+
+   ✅ libpolycall-v1/DLL_EXPORT_FILES_CREATED.txt
+      - This manifest file
+
+4. CODE TEMPLATE
+   ✅ libpolycall-v1/src/TEMPLATE_polycall.c.example
+      - Example C source file with proper export macros
+      - Shows pattern for public vs private functions
+      - Complete with comments and explanations
+      - ~300 lines
+
+================================================================================
+MODIFIED FILES
+================================================================================
+
+1. MAIN HEADER FILE (Updated)
+   ✅ libpolycall-v1/include/polycall.h
+      - Added: #include "polycall_export.h"
+      - Added: POLYCALL_EXPORT to all public functions
+      - Added: POLYCALL_CALL to all function signatures
+      - Changed: extern "C" to POLYCALL_C_BEGIN/POLYCALL_C_END
+      - Status: Ready for use
+
+================================================================================
+QUICK REFERENCE
+================================================================================
+
+Key Macros:
+  POLYCALL_EXPORT       -> Public function/data (exported in DLL)
+  POLYCALL_LOCAL        -> Private function/data (hidden from DLL)
+  POLYCALL_CALL         -> Calling convention (Windows only)
+  POLYCALL_C_BEGIN/END  -> C++ extern "C" wrapper
+
+Windows Behavior:
+  Build DLL:     gcc -DPOLYCALL_DLL_EXPORT ... → __declspec(dllexport)
+  Import DLL:    gcc ... (default)             → __declspec(dllimport)
+  Result:        polycall.dll + polycall.lib
+
+Unix/Linux/macOS Behavior:
+  Build:         gcc -fvisibility=hidden ... → __attribute__((visibility("default")))
+  Result:        libpolycall.so / libpolycall.dylib
+  Private:       POLYCALL_LOCAL              → __attribute__((visibility("hidden")))
+
+Build Commands:
+  make              # Build shared library (debug)
+  make release      # Build release shared library
+  make static       # Build static library
+  make dll          # Build Windows DLL
+  make clean        # Clean artifacts
+  make install      # Install on Unix/Linux
+  make help         # Show all targets
+
+================================================================================
+IMPLEMENTATION CHECKLIST
+================================================================================
+
+Required Updates to .c files:
+  [ ] Add #include "polycall_export.h" at the top of each .c file
+  [ ] Mark public functions with POLYCALL_EXPORT and POLYCALL_CALL
+  [ ] Mark private functions with POLYCALL_LOCAL
+  [ ] Verify all files compile: make clean && make
+  [ ] Test on Windows: make dll
+  [ ] Test on Linux: make release
+  [ ] Test on macOS: make release
+
+Required Updates to .h files:
+  [ ] Add #include "polycall_export.h"
+  [ ] Wrap with POLYCALL_C_BEGIN/POLYCALL_C_END (already done for polycall.h)
+  [ ] Mark public functions with POLYCALL_EXPORT and POLYCALL_CALL
+
+Files Requiring Updates:
+  Core Library:
+    - src/polycall.c
+    - src/network.c
+    - src/polycall_protocol.c
+    - src/polycall_state_machine.c
+    - src/polycall_micro.c
+    - src/polycall_file_parser.c
+    - src/polycall_token.c
+    - src/polycall_tokenizer.c
+    - (any other .c files)
+
+  Headers:
+    - include/network.h
+    - include/polycall_protocol.h
+    - include/polycall_state_machine.h
+    - include/polycall_micro.h
+    - include/polycall_file_parser.h
+    - include/polycall_token.h
+    - (any other .h files)
+
+  Bindings:
+    - @bindings/cpolycall/include/polycall_ffi.h
+    - @bindings/cpolycall/src/polycall_ffi_bridge.c
+    - @bindings/java-polycall/native/include/polycall_bridge.h
+    - @bindings/java-polycall/native/src/polycall_bridge.c
+    - daemon/include/daemonize.h
+    - daemon/src/daemonize.c
+    - (any other binding files)
+
+================================================================================
+TESTING VERIFICATION
+================================================================================
+
+Linux/Unix Verification:
+  1. Build: make clean && make
+  2. Check symbols: nm -D lib/libpolycall.so | grep polycall_init
+     Expected: Shows polycall_init_with_config as 'T'
+  3. Check private hidden: nm -D lib/libpolycall.so | grep internal
+     Expected: No results (internal functions hidden)
+
+Windows Verification:
+  1. Build: make dll
+  2. Check DLL: dumpbin /EXPORTS lib/polycall.dll
+     Expected: Shows polycall_init_with_config in export list
+  3. Link test program: cl test.c /I include lib/polycall.lib
+
+================================================================================
+SUPPORT MATERIALS
+================================================================================
+
+Included Reference PDFs (uploaded):
+  - dllexport, dllimport _ Microsoft Learn.pdf
+  - dllexport, dllimport2 _ Microsoft Learn.pdf
+
+Guides:
+  - DLL_EXPORT_GUIDE.md (detailed how-to)
+  - DLL_EXPORT_SUMMARY.md (quick reference)
+
+Examples:
+  - TEMPLATE_polycall.c.example (code pattern)
+
+Documentation:
+  - This file (manifest)
+
+================================================================================
+PROGRESS SUMMARY
+================================================================================
+
+✅ COMPLETED (5 items):
+  1. Cross-platform export macro header created
+  2. Main header file (polycall.h) updated
+  3. Makefile created with all build targets
+  4. Comprehensive guide document created
+  5. Code template example provided
+
+⏳ TODO (2 items):
+  1. Update all .c source files with export macros
+  2. Update all remaining .h header files with export macros
+
+Estimated Effort:
+  - Update .c files: 2-3 hours (15-20 files)
+  - Update .h files: 1-2 hours (8-12 files)
+  - Total: 3-5 hours for complete implementation
+
+Current Progress: 71% COMPLETE (5 of 7 major tasks)
+
+================================================================================
+NEXT STEPS
+================================================================================
+
+1. Review DLL_EXPORT_GUIDE.md for detailed instructions
+2. Copy pattern from TEMPLATE_polycall.c.example
+3. Update each .c file:
+   - Add #include "polycall_export.h" at top
+   - Mark public functions with POLYCALL_EXPORT POLYCALL_CALL
+   - Mark private functions with POLYCALL_LOCAL
+4. Update each .h file:
+   - Add #include "polycall_export.h"
+   - Add POLYCALL_C_BEGIN/POLYCALL_C_END
+   - Mark public functions with POLYCALL_EXPORT POLYCALL_CALL
+5. Test build: make clean && make
+6. Verify exports: nm -D lib/libpolycall.so (Linux/macOS)
+7. Test on Windows: make dll
+
+================================================================================
+QUESTION? READ THESE FILES
+================================================================================
+
+Q: How do I mark a public function?
+A: See DLL_EXPORT_GUIDE.md section "Quick Update Checklist"
+
+Q: How do I mark a private function?
+A: See TEMPLATE_polycall.c.example for complete example
+
+Q: What's the difference between Windows and Unix?
+A: See DLL_EXPORT_GUIDE.md section "How Export Macros Work"
+
+Q: How do I build for Windows?
+A: See DLL_EXPORT_SUMMARY.md section "Build Examples" → "Windows - Build DLL"
+
+Q: How do I verify the exports?
+A: See DLL_EXPORT_SUMMARY.md section "Step 4: Verify Library"
+
+Q: Which files need updating?
+A: See DLL_EXPORT_SUMMARY.md section "Files to Update: Checklist"
+
+Q: What if I get a compilation error?
+A: See DLL_EXPORT_SUMMARY.md section "Troubleshooting"
+
+================================================================================
+CONTACT
+================================================================================
+
+Questions about this implementation?
+- Email: nnamdi@obinexuscomputing.com
+- Reference Microsoft Learn PDFs for detailed Windows DLL information
+
+================================================================================
+VERSION INFORMATION
+================================================================================
+
+LibPolyCall Version: 2.0.0
+Export System Version: 1.0.0
+Makefile Version: 1.0.0
+Date Created: March 7, 2026
+Last Updated: March 7, 2026
+
+================================================================================
+END OF MANIFEST
+================================================================================

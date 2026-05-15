@@ -1,0 +1,62 @@
+.TH POLYCALL 1 "2026-02-14" "LibPolycall 2.0.0" "User Commands"
+.SH NAME
+polycall \- LibPolycall V2 polymorphic core CLI
+.SH SYNOPSIS
+.B polycall
+[\fIOPTION\fR]... [\fICOMMAND\fR] [\fIARGS\fR]...
+.SH DESCRIPTION
+.B polycall
+is the command-line interface for the LibPolycall V2 polymorphic core library.
+It provides commands for FFI bridge management, microservice isolation,
+edge computing, and telemetry gathering.
+.PP
+In server mode, polycall reads a configuration file and starts a protocol
+server that accepts requests from language bindings (Node.js, Python, Go,
+Java, Rust, COBOL, Lua) via the polycall protocol.
+.SH COMMANDS
+.TP
+.B ffi \fI<binding>\fR
+Manage FFI (Foreign Function Interface) bridge for the specified language binding.
+Enables seamless cross-language function calls through the polycall protocol.
+.TP
+.B micro \fI<service>\fR
+Microservice isolation command. Isolates components (e.g., banking service
+from ad service) with strict data boundaries.
+.TP
+.B edge \fI<subcommand>\fR
+Edge computing management. Controls node caching and triggers updates
+only when underlying data changes.
+.TP
+.B telemetry guid \fI[options]\fR
+Generate a Global Unique Identifier using a seeded cryptographic hash
+mapped to NFA state machine routes. Used for bug replication and
+system state tracking.
+.TP
+.B telemetry uuid \fI[options]\fR
+Generate a User Unique Identifier for session tracking and
+authentication within the polycall protocol.
+.SH OPTIONS
+.TP
+.B \-\-config \fI<file>\fR
+Start the polycall server with the specified configuration file.
+.TP
+.B \-\-validate\-config \fI<file>\fR
+Validate configuration file syntax without starting the server.
+.TP
+.B \-\-help
+Display help information.
+.TP
+.B \-\-version
+Display version information.
+.SH FILES
+.TP
+.I /etc/polycall/config.polycall
+System-wide configuration file.
+.TP
+.I .polycallrc
+Per-project binding configuration.
+.SH SEE ALSO
+.BR polycalld (8),
+.BR config.polycall (5)
+.SH AUTHOR
+OBINexus Computing \- Nambdi Obi-Pala

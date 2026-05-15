@@ -1,0 +1,6 @@
+[driver]
+name=banking-bridge
+listen=3005
+forward=8080
+zero_trust=true
+telemetry=true

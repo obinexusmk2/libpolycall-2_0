@@ -1,0 +1,81 @@
+# config.polycall - LibPolycall V2 Master Server Configuration
+# OBINexus Computing
+#
+# This file configures the polycall protocol daemon (polycalld).
+# Place in /etc/polycall/config.polycall or pass via --config flag.
+#
+# Syntax:
+#   server <name> { ... }     Define a protocol server binding
+#   security { ... }          Zero-trust security policy
+#   telemetry { ... }         Telemetry and GUID configuration
+
+# --- Protocol Server Bindings ---
+
+server node {
+    port        8084
+    bind        127.0.0.1
+    protocol    http
+    max_clients 128
+    timeout     60
+}
+
+server python {
+    port        3104
+    bind        127.0.0.1
+    protocol    reverse_proxy
+    max_clients 64
+    timeout     30
+}
+
+server go {
+    port        9084
+    bind        127.0.0.1
+    protocol    http
+    max_clients 256
+    timeout     30
+}
+
+server java {
+    port        7084
+    bind        127.0.0.1
+    protocol    http
+    max_clients 64
+    timeout     60
+}
+
+# --- Security (Zero-Trust) ---
+
+security {
+    mode            zero_trust
+    tls_enabled     true
+    tls_cert        /etc/ssl/certs/polycall.crt
+    tls_key         /etc/ssl/private/polycall.key
+    auth_required   true
+    hash_algorithm  sha256
+}
+
+# --- Telemetry ---
+
+telemetry {
+    enabled         true
+    guid_seed       auto
+    guid_algorithm  sha256
+    reporting       /var/log/polycall/telemetry.log
+    uuid_session    true
+}
+
+# --- Edge Computing ---
+
+edge {
+    cache_enabled   true
+    cache_dir       /var/lib/polycall/cache
+    cache_ttl       3600
+    update_trigger  on_change
+}
+
+# --- Microservice Isolation ---
+
+micro {
+    isolation       strict
+    sandbox         true
+}
