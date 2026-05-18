@@ -1,0 +1,107 @@
+version: '3.8'
+
+services:
+  # ─────────────────────────────────────────────────────────────
+  # C Example - Compile and run
+  # ─────────────────────────────────────────────────────────────
+  example-c:
+    image: obinexus/libpolycall:2.0.0
+    container_name: libpolycall-example-c
+    volumes:
+      - ./examples/hello_polycall.c:/workspace/hello_polycall.c
+    working_dir: /workspace
+    environment:
+      - LD_LIBRARY_PATH=/opt/polycall/lib
+    command: >
+      sh -c "
+        echo '=== Compiling C Example ===' &&
+        gcc -I/opt/polycall/include hello_polycall.c \
+          -L/opt/polycall/lib -lpolycall -o hello_polycall &&
+        echo '=== Running C Example ===' &&
+        LD_LIBRARY_PATH=/opt/polycall/lib ./hello_polycall
+      "
+    restart: no
+
+  # ─────────────────────────────────────────────────────────────
+  # Python Example - Run directly
+  # ─────────────────────────────────────────────────────────────
+  example-python:
+    image: obinexus/libpolycall:2.0.0
+    container_name: libpolycall-example-python
+    volumes:
+      - ./examples/hello_polycall.py:/workspace/hello_polycall.py
+    working_dir: /workspace
+    environment:
+      - LD_LIBRARY_PATH=/opt/polycall/lib
+    command: >
+      sh -c "
+        echo '=== Running Python Example ===' &&
+        python3 hello_polycall.py
+      "
+    restart: no
+
+  # ─────────────────────────────────────────────────────────────
+  # Node.js Example - Install deps and run
+  # ─────────────────────────────────────────────────────────────
+  example-nodejs:
+    image: obinexus/libpolycall:2.0.0
+    container_name: libpolycall-example-nodejs
+    volumes:
+      - ./examples/hello_polycall.js:/workspace/hello_polycall.js
+    working_dir: /workspace
+    environment:
+      - LD_LIBRARY_PATH=/opt/polycall/lib
+      - NODE_PATH=/workspace/node_modules
+    command: >
+      sh -c "
+        echo '=== Installing Node.js dependencies ===' &&
+        npm install ffi-napi ref-napi ref-struct-di &&
+        echo '=== Running Node.js Example ===' &&
+        node hello_polycall.js
+      "
+    restart: no
+
+  # ─────────────────────────────────────────────────────────────
+  # Go Example - Build and run
+  # ─────────────────────────────────────────────────────────────
+  example-go:
+    image: golang:1.21-alpine
+    container_name: libpolycall-example-go
+    volumes:
+      - ./examples/hello_polycall.go:/workspace/hello_polycall.go
+      - /opt/polycall:/opt/polycall:ro
+    working_dir: /workspace
+    environment:
+      - LD_LIBRARY_PATH=/opt/polycall/lib
+      - CGO_ENABLED=1
+      - CGO_CFLAGS=-I/opt/polycall/include
+      - CGO_LDFLAGS=-L/opt/polycall/lib -lpolycall
+    command: >
+      sh -c "
+        apk add --no-cache gcc musl-dev &&
+        echo '=== Building Go Example ===' &&
+        go get github.com/ebitengine/purego &&
+        go build -o hello_polycall hello_polycall.go &&
+        echo '=== Running Go Example ===' &&
+        LD_LIBRARY_PATH=/opt/polycall/lib ./hello_polycall
+      "
+    restart: no
+
+  # ─────────────────────────────────────────────────────────────
+  # Interactive development shell
+  # ─────────────────────────────────────────────────────────────
+  dev-shell:
+    image: obinexus/libpolycall:2.0.0-dev
+    container_name: libpolycall-dev-shell
+    volumes:
+      - ./examples:/workspace/examples
+      - ./include:/workspace/include:ro
+      - ./src:/workspace/src:ro
+    working_dir: /workspace
+    environment:
+      - LD_LIBRARY_PATH=/opt/polycall/lib
+      - POLYCALL_ENV=development
+    stdin_open: true
+    tty: true
+    command: /bin/bash
+    restart: no
