@@ -1,58 +1,108 @@
-# LibPolyCall Build Artifacts & Development
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-*.o
-*.a
-*.dll
-*.dylib
-*.lib
-*.exe
+# Docker build context boundary
+#
+# Keep the production image focused on source code, build metadata, and runtime
+# configuration. Documentation, screenshots, generated outputs, and local tool
+# caches stay outside the image layers.
+
+.git/
+.gitignore
+.dockerignore
+
+# Build outputs
 build/
 _docker_build/
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
-Makefile
+**/target/
+**/dist/
+**/node_modules/
+**/__pycache__/
+**/.pytest_cache/
+*.o
+*.a
+*.so
+*.dll
+*.dylib
+*.lib
+*.exe
+*.class
+*.jar
+
+# Local/editor state
+.vscode/
+.idea/
 *.swp
 *.swo
 *~
 .DS_Store
-.vscode/
-.idea/
 *.log
-node_modules/
-dist/
-.git/
-.gitignore
-*.tar
-*.tar.gz
-*.zip
 .env
 .env.local
+.env.*.local
+
+# Documentation, reports, and media
+docs/
 reports/
 snapshots/
-DLL_EXPORT_FILES_CREATED.txt
 *.pdf
 *.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.svg
 favicon.ico
 rh.ico
-build-windows.ps1
+index.html
+DLL_EXPORT_FILES_CREATED.txt
 TODO.txt
 TEMPLATE_polycall.c.example
 
-# Keep only necessary files
-!include/
-!src/
-!bindings/
-!config/
-!scripts/
-!Dockerfile
-!docker-compose.yml
-!.dockerignore
-!Polycallfile.toml
-!Makefile
+# Windows helper scripts are host-side tooling, not image inputs.
+build-windows.ps1
+
+# Re-include the files and folders required by Dockerfile stages.
 !CMakeLists.txt
-!README.md
+!Makefile
+!Dockerfile
 !LICENSE
+!README.md
+!include/
+!include/**
+!src/
+!src/**
+!config/
+!config/**
+!bindings/
+!bindings/**
+!examples/
+!examples/**
+
+# Re-apply generated-output exclusions inside included source trees.
+**/target/
+**/target/**
+**/dist/
+**/dist/**
+**/node_modules/
+**/node_modules/**
+**/__pycache__/
+**/__pycache__/**
+**/.pytest_cache/
+**/.pytest_cache/**
+*.o
+*.a
+*.so
+*.dll
+*.dylib
+*.lib
+*.exe
+*.class
+*.jar
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.svg

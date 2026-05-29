@@ -1,44 +1,38 @@
-# Daemonize:
-Usage: daemonize [options]
-Options:
-        -d <dir>          Change working directory
-        -p <file>         Write process ID to file
+# polycalld
 
-        -l <file>         Redirect stdout and stderr to file
+`polycalld` is the LibPolyCall POSIX protocol daemon. It runs as a foreground
+process for development or daemonizes with a PID file and log file for Linux
+service deployments.
 
-        -h                Show this help
+## Build
 
-        -V                Show version
+```sh
+make -C daemon
+```
 
-```c
-#include <stdio.h>
-#include <stdlib.h>
-#include <signal.h>
-#include <unistd.h>
-#include <syslog.h>
+On Linux, macOS, WSL, and Docker this builds the POSIX daemon from
+`src/polycalld.c` and `src/daemonize.c`.
 
-#include "daemonize.h"
+On native Windows, the Makefile builds `polycalld.exe` from
+`src/polycalld_windows.c`. That binary is an explicit compatibility shim: it
+prints usage and explains that the production daemon must run under WSL, Linux,
+or Docker until a native Windows service implementation exists.
 
-static void sigterm_handler(int signum){
-    syslog(LOG_INFO, "SIGTERM received, exiting");
-    exit(0);
-}
+## Run
 
-int main()
-{
-        if (daemonize("/tmp", "/tmp/daemon.pid", "/tmp/daemon.log") != 0)
-        {
-                perror("daemonize");
-                return 1;
-        }
-        signal(SIGTERM, sigterm_handler);
-        syslog(LOG_INFO, "daemon started");
-        for(;;)
-        {
-                syslog(LOG_DEBUG, "main loop");
-                sleep(1);
-        }
-        return 0;
-}
+```sh
+./polycalld --config /etc/polycall/config.polycall --foreground
+```
 
+Common options:
+
+```text
+-c, --config <path>    Configuration file
+-p, --pidfile <path>   PID file path
+-s, --socket <path>    Unix socket path
+-l, --logfile <path>   Log file path
+-f, --foreground       Run in foreground
+-v, --verbose          Verbose output
+-V, --version          Print version
+-h, --help             Show help
 ```

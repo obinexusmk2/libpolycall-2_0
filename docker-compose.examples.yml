@@ -5,7 +5,7 @@ services:
   # C Example - Compile and run
   # ─────────────────────────────────────────────────────────────
   example-c:
-    image: obinexus/libpolycall:2.0.0
+    image: obinexus/libpolycall:2.0.0-dev
     container_name: libpolycall-example-c
     volumes:
       - ./examples/hello_polycall.c:/workspace/hello_polycall.c
@@ -26,7 +26,7 @@ services:
   # Python Example - Run directly
   # ─────────────────────────────────────────────────────────────
   example-python:
-    image: obinexus/libpolycall:2.0.0
+    image: obinexus/libpolycall:2.0.0-dev
     container_name: libpolycall-example-python
     volumes:
       - ./examples/hello_polycall.py:/workspace/hello_polycall.py
@@ -44,7 +44,7 @@ services:
   # Node.js Example - Install deps and run
   # ─────────────────────────────────────────────────────────────
   example-nodejs:
-    image: obinexus/libpolycall:2.0.0
+    image: obinexus/libpolycall:2.0.0-dev
     container_name: libpolycall-example-nodejs
     volumes:
       - ./examples/hello_polycall.js:/workspace/hello_polycall.js

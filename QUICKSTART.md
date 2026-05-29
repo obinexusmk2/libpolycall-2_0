@@ -47,18 +47,18 @@ docker-compose -f docker-compose.examples.yml up example-go
 
 ```bash
 # C Example
-docker run -it --rm -v $(pwd)/examples:/workspace obinexus/libpolycall:2.0.0 sh -c "
+docker run -it --rm -v $(pwd)/examples:/workspace obinexus/libpolycall:2.0.0-dev sh -c "
   cd /workspace
   gcc -I/opt/polycall/include hello_polycall.c -L/opt/polycall/lib -lpolycall -o hello_polycall
   LD_LIBRARY_PATH=/opt/polycall/lib ./hello_polycall
 "
 
 # Python Example
-docker run -it --rm -v $(pwd)/examples:/workspace obinexus/libpolycall:2.0.0 \
+docker run -it --rm -v $(pwd)/examples:/workspace obinexus/libpolycall:2.0.0-dev \
   python3 /workspace/hello_polycall.py
 
 # Node.js Example (after npm install)
-docker run -it --rm -v $(pwd)/examples:/workspace obinexus/libpolycall:2.0.0 sh -c "
+docker run -it --rm -v $(pwd)/examples:/workspace obinexus/libpolycall:2.0.0-dev sh -c "
   cd /workspace
   npm install ffi-napi ref-napi ref-struct-di
   node hello_polycall.js
@@ -156,6 +156,10 @@ lib, _ := purego.Dlopen('/opt/polycall/lib/libpolycall.so', purego.RTLD_NOW)
 
 ---
 
+Runtime images contain only native library artifacts, headers, and runtime
+configuration. Use the development image when you need compilers, Python,
+Node.js/npm, Lua, bindings, or examples inside the container.
+
 ## API Overview
 
 ### Main Functions (C)
@@ -198,7 +202,8 @@ docker build -t libpolycall-dev --target development .
 docker run -it --rm -v $(pwd):/libpolycall libpolycall-dev bash
 ```
 
-This includes build tools (gcc, cmake, gdb, git, make).
+This includes build tools (gcc, cmake, gdb, git, make), Python 3, Node.js/npm,
+Lua, bindings, and examples.
 
 ---
 

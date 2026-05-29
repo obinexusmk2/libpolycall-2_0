@@ -1,103 +1,83 @@
-# OBINexus Services Repository Structure Implementation
+# LibPolyCall v2 Repository Structure
 
-## Target Directory Structure
+This repository is organized so production source, daemon code, bindings,
+documentation, generated outputs, and container packaging remain easy to audit
+independently.
+
+## Top-Level Boundaries
 
 ```
-github.com/obinexus/services/
-└── computing/
-    └── hotwiring-architecture/
-        ├── overview.md
-        ├── README.md
-        └── hotwiring_guide.pdf
+libpolycall-v2/
+|-- src/                 Core C implementation for libpolycall
+|-- include/             Public C headers
+|-- daemon/              POSIX polycalld daemon plus Windows compatibility shim
+|-- bindings/            Language binding source packages
+|-- examples/            Runnable examples and sample integrations
+|-- projects/            Larger reference applications
+|-- config/              Runtime, CMake, package, service, and proxy config
+|-- schema/              Polycallfile and protocol schemas
+|-- scripts/             Release, extraction, and maintenance helpers
+|-- test/                Core C tests
+|-- docs/                Human-facing documentation and documentation assets
+|-- reports/             Build and migration reports
+|-- snapshots/           Historical terminal/session captures
+|-- Dockerfile           Container build definitions
+|-- docker-compose*.yml  Local runtime and example orchestration
+|-- Makefile             Native C build entry point
+|-- CMakeLists.txt       CMake build entry point
+`-- build-windows.ps1    Windows host build helper
 ```
 
-## File Specifications
+## Source Code
 
-### README.md
-Primary documentation file containing the complete Hot-Wiring Architecture specification with full OBINexus integration details.
+Core production code lives in `src/` and `include/`. The daemon is intentionally
+kept in `daemon/` because it has its own process model and platform constraints.
+Language adapters live under `bindings/`, and larger composed applications live
+under `projects/`.
 
-### overview.md
-Condensed executive summary focusing on core concepts and implementation strategy for quick reference.
+Generated build output must stay out of source folders. Use `build/`,
+`_docker_build/`, language-specific `target/`, or tool-managed cache folders.
+These paths are ignored by `.gitignore` and `.dockerignore`.
 
-### hotwiring_guide.pdf
-Comprehensive technical guide in PDF format for formal distribution, offline access, and professional consultation reference.
+## Documentation And Media
 
-## Implementation Strategy
+Markdown, manuals, PDFs, diagrams, transcripts, and image assets belong under
+`docs/`:
 
-### Phase 1: Repository Structure Creation
-1. Navigate to `github.com/obinexus/services`
-2. Create directory path: `/computing/hotwiring-architecture/`
-3. Initialize with proper .gitignore and documentation standards
-
-### Phase 2: Content Deployment
-1. Deploy README.md with complete Hot-Wiring Architecture specification
-2. Generate overview.md with executive summary content
-3. Convert documentation to PDF format for index.pdf
-
-### Phase 3: Integration Verification
-1. Verify proper linking within OBINexus Computing service branch
-2. Ensure tier access structure alignment
-3. Validate technical tool integration references (NLink, LibPolyCall, GosiLang, Node-Zero)
-
-## Git Workflow
-
-### Commit Message Format
 ```
-feat(hotwiring): add OBINexus Hotwiring Architecture overview for Computing division
-
-- Add comprehensive hot-wiring architecture documentation
-- Include tier access integration specifications  
-- Document technical tool stack integration
-- Establish cultural relevance and value framework
+docs/
+|-- assets/          Curated static assets used by docs
+|-- images/          Screenshots and image-only documentation material
+|-- diagrams/        PlantUML, SVG, and architecture diagrams
+|-- man/             Manual pages
+|-- pdf/             Rendered document exports
+|-- references/      External or long-form reference PDFs
+|-- specifications/  Protocol, architecture, and implementation specs
+`-- transcripts/     Session transcripts and historical notes
 ```
 
-### Branch Strategy
-- Create feature branch: `feature/hotwiring-architecture`
-- Develop and test documentation structure
-- Submit PR for review and integration into main branch
+Repository-root documentation should stay limited to onboarding files such as
+`README.md`, `QUICKSTART.md`, `USAGE_GUIDE.md`, and release/publishing notes.
 
-## Technical Dependencies
+## Container Packaging
 
-### Documentation Standards
-- Markdown formatting compliance with OBINexus voice guidelines
-- PDF generation using LaTeX or Pandoc for professional formatting
-- Cross-referencing with existing Computing service documentation
+The Docker image keeps three responsibilities separate:
 
-### Integration Points
-- **HyperNUM**: Massive-scale numeric processing integration
-- **LibPolyCall**: Polymorphic interface binding specifications
-- **Node-Zero**: Zero-knowledge security framework implementation
-- **OBIX**: UI/UX duality engine integration
-- **GosiLang**: Thread-safe communication protocols
+- `builder`: compiler and CMake toolchain used only to produce artifacts.
+- `runtime`: production library, headers, binary, and runtime configuration.
+- `development`: optional language runtimes, build tools, bindings, and examples.
 
-## Quality Assurance
+Documentation, screenshots, PDFs, reports, snapshots, and generated outputs are
+excluded from the Docker context so they do not inflate image layers or appear
+in runtime vulnerability scans.
 
-### Documentation Review Checklist
-- [ ] Technical accuracy of tool references
-- [ ] Alignment with OBINexus tier access structure
-- [ ] Cultural relevance and "from the heart" messaging
-- [ ] Professional formatting and readability
-- [ ] Cross-reference validation with existing services
+## Cleanup Rules
 
-### Testing Protocol
-- Documentation builds successfully in PDF format
-- Markdown renders correctly across platforms
-- Links and references resolve properly
-- Integration with existing OBINexus Computing documentation
-
-## Deployment Timeline
-
-**Immediate Actions:**
-1. Create repository structure
-2. Deploy README.md content
-3. Generate overview.md summary
-
-**Short-term Objectives:**
-1. PDF generation and formatting
-2. Integration testing with existing documentation
-3. Peer review and technical validation
-
-**Long-term Integration:**
-1. Link integration with OBINexus website (obnx.org)
-2. Service tier access implementation
-3. Client-facing documentation preparation
+- Do not commit compiled Java `target/` output, C object files, DLLs, EXEs, or
+  package caches.
+- Keep image assets inside `docs/assets/` or `docs/images/`.
+- Keep generated reports in `reports/` and historical captures in `snapshots/`.
+- Add new production C APIs under `include/` and their implementations under
+  `src/`.
+- Add new daemon-only behavior under `daemon/`; do not mix it into the core
+  library unless it is reusable runtime functionality.

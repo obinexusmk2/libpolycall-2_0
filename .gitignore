@@ -44,7 +44,23 @@ organization_backup*/
 *.d
 *.a
 *.so
+*.dll
+*.dylib
+*.lib
+*.exe
+*.class
+*.jar
+*.pyd
+*.dll.a
 bin/polycall
+build/
+_docker_build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+**/target/
+**/dist/
+**/node_modules/
 libpolycall-v1trail/build/
 libpolycall-v1trail/lib/
 
@@ -63,4 +79,3 @@ npm-debug.log*
 # Documentation build artifacts
 docs/_build/
 docs/.doctrees/
-

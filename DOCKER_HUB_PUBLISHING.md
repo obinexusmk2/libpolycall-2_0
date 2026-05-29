@@ -70,17 +70,18 @@ Or with interactive login:
 
 **Multi-Stage Build:**
 - **Builder Stage**: Compiles C library (CMake + GCC)
-- **Runtime Stage**: Minimal image with only runtime deps (Python 3, Node.js, Lua, etc.)
+- **Runtime Stage**: Minimal production image with native library artifacts and configuration only
+- **Development Stage**: Optional build tools, Python 3, Node.js/npm, Lua, bindings, and examples
 
 **Security Features:**
-- Non-root user (`polycall:polycall`, UID 1000)
+- Non-root service user (`polycall:polycall`, UID 10001 by default)
 - Health check included (`HEALTHCHECK`)
-- Minimal attack surface (runtime deps only)
+- Minimal attack surface in the production runtime image
 - OCI-compliant labels
 
 **Image Size:**
 - Builder: ~600MB (development)
-- Runtime: ~200-300MB (production)
+- Runtime: minimal Ubuntu base plus libpolycall artifacts
 
 ---
 
